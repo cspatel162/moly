@@ -11,7 +11,7 @@ char *gets(char *buffer);
 	2. Schnittstelle mit Modul Spielfeld: Nutzung gemeinsamer Variable "Wuerfelzahl"		Spielfeld.c gibt Aktualisierung heraus
 	3. Feld Prueffunktion: 3 Moegliche Ergebnisse *Aktionfeld
 												*in Besitz			Variable "Spieler"
-												*nicht in Besitz	Variable "Spieler"
+												*nicht in Besitz	Variable "Spieler"test
 
 							//Schnittstelle zu Aktionskarten.c Uebergabe Information welcher "Spieler"	-->	Aktionskarten.c greift 
 																										auf Variablen "Geld" des entsprechenden "Spielers" zu , und vlt auch"Position"
