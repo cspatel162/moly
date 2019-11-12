@@ -6,9 +6,5 @@ char *gets(char *buffer);
 
 #include "Header.h"
 #include <stdio.h>
+#include<Windows.h>
 
-int main()
-{
-	printf("Das Spiel wurde erfolgreich gestartet!");
-	scanf(" ");
-}

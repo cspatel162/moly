@@ -119,6 +119,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="output.c" />
     <ClCompile Include="Spielmechanik.c" />
   </ItemGroup>
   <ItemGroup>
