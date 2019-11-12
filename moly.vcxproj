@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{02559CB2-EE17-45DB-9959-393496C1C828}</ProjectGuid>
+    <ProjectGuid>{BC426480-0C38-4B03-A20C-B298C086E315}</ProjectGuid>
     <RootNamespace>moly</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
