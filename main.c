@@ -11,10 +11,10 @@ char *gets(char *buffer);
 //Prototypen die nur in diesem Modul zur Verfügung stehen
 int fetch_data(void);
 void end(void);
+int welcome(void);
 
 int number_street;
 struct field *matchfield;
-
 
 int main()
 {
@@ -23,6 +23,11 @@ int main()
 	schreibe_data();
 
 	scanf(" ");
+}
+
+int welcome(void)
+{
+	
 }
 
 int fetch_data(void)
@@ -110,7 +115,9 @@ int schreibe_data(void)
 
 void end(void)
 {
-	
+	free(matchfield);
+	printf("Vielen Dank, dass du mit uns gespielt hast.\Bis zum nächsten mal.");
+	scanf(" ");
 }
 
 
