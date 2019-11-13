@@ -8,3 +8,41 @@ char *gets(char *buffer);
 #include <stdio.h>
 #include<Windows.h>
 
+//Lokale Prototypen
+//Funktionen die nur in diesem Modul aufgerufen werden können und müssen.
+int show_file(char[]);
+
+
+int show_file(char filename[15])
+{
+	char zeile[200];
+	FILE *file;
+
+	printf("\n");
+
+	file = fopen(filename, "r");
+	if (file == 0)
+	{
+		printf("ERROR: Die Datei %s geoeffnet werden.", filename);
+		return 1;
+	}
+
+	while (!feof(file))
+	{
+		fgets(zeile, 200, file);
+		printf("%s", zeile);
+	}
+	printf("\n");
+	fclose(file);
+	return 0;
+}
+
+int matchfield_update(void)
+{
+
+}
+
+int output_field(struct field *ptr)
+{
+	
+}

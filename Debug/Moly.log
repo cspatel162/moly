@@ -1,5 +1,5 @@
 ﻿  output.c
-  main.c
-  Code wird generiert...
-  Moly.vcxproj -> C:\Users\User\Documents\moly\Moly\Debug\Moly.exe
-  Moly.vcxproj -> C:\Users\User\Documents\moly\Moly\Debug\Moly.pdb (Full PDB)
+c:\users\porst m\documents\moly\moly\moly\output.c(48): warning C4716: "output_field": Muss einen Wert zurückgeben
+c:\users\porst m\documents\moly\moly\moly\output.c(43): warning C4716: "matchfield_update": Muss einen Wert zurückgeben
+  moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.exe
+  moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.pdb (Full PDB)
