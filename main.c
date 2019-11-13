@@ -12,3 +12,5 @@ int main()
 	printf("Das Spiel wurde erfolgreich gestartet!");
 	scanf(" ");
 }
+
+()
