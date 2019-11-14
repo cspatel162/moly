@@ -1,0 +1,15 @@
+﻿Player,;600000,;600000,;0,;0,;b,;y,;
+0,;Los,; ,; ,; ,; ,; ,; ,; ,; ,; ,; ,;
+1,;Bahnhof,;b,;500,;1,;10,;20,;30,;40,;50,;60,;2,;
+2,;Marktplatz,;g,;1000,;500,;120,;130,;140,;150,;360,;478,;1,;
+2,;FrontenhStrasse,;g,;1000,;500,;120,;130,;140,;150,;360,;478,;1,;
+0,;Frontenhausener Strasse,;y,;3000,;0,;0,;0,;0,;0,;0,;0,;6,;
+0,;Aktionskarte,; ,; ,; ,; ,; ,; ,; ,; ,; ,; ,;
+0,;Frontenhausener Strasse,;b,;3000,;0,;0,;0,;0,;0,;0,;0,;6,;
+0,;Frontenhausener Strasse,;b,;3000,;0,;0,;0,;0,;0,;0,;0,;6,;
+1,;Frontenhausener Strasse,;p,;3000,;0,;0,;0,;0,;0,;0,;0,;6,;
+1,;Frontenhausener Strasse,;p,;3000,;0,;0,;0,;0,;0,;0,;0,;6,;
+0,;Frontenhausener Strasse,;r,;3000,;0,;0,;0,;0,;0,;0,;0,;6,;
+0,;Aktionskarte,; ,; ,; ,; ,; ,; ,; ,; ,; ,; ,;
+2,;Frontenhausener Strasse,;p,;3000,;0,;0,;0,;0,;0,;0,;0,;6,;
+2,;Frontenhausener Strasse,; ,; ,; ,; ,; ,; ,; ,; ,; ,; ,;

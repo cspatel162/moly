@@ -1,13 +1,17 @@
 ﻿  main.c
-c:\users\porst m\documents\moly\moly\moly\main.c(21): warning C4013: "show_file" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\porst m\documents\moly\moly\moly\main.c(23): warning C4013: "schreibe_data" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\porst m\documents\moly\moly\moly\main.c(52): warning C4013: "calloc" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\porst m\documents\moly\moly\moly\main.c(52): warning C4047: "=": Anzahl der Dereferenzierungen bei "field *" und "int" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\main.c(85): warning C4013: "atoi" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\porst m\documents\moly\moly\moly\main.c(69): warning C4101: "zw": Unreferenzierte lokale Variable
-c:\users\porst m\documents\moly\moly\moly\main.c(118): warning C4013: "free" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\porst m\documents\moly\moly\moly\main.c(119): warning C4129: "B": nicht erkannte Folge von Escapesequenz
-c:\users\porst m\documents\moly\moly\moly\main.c(31): warning C4716: "welcome": Muss einen Wert zurückgeben
-c:\users\porst m\documents\moly\moly\moly\main.c(114): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
+c:\users\porst m\documents\moly\moly\moly\main.c(36): warning C4013: "show_file" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\porst m\documents\moly\moly\moly\main.c(40): warning C4013: "calloc" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\porst m\documents\moly\moly\moly\main.c(40): warning C4047: "=": Anzahl der Dereferenzierungen bei "char *" und "int" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\main.c(43): warning C4087: "fetch_streetdata": Mit "void"-Parameterliste deklariert
+c:\users\porst m\documents\moly\moly\moly\main.c(44): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\main.c(44): warning C4024: "matchfield_update": unterschiedliche Typen für formalen und übergebenen Parameter 1
+c:\users\porst m\documents\moly\moly\moly\main.c(48): warning C4027: Funktion ohne Liste formaler Parameter deklariert
+c:\users\porst m\documents\moly\moly\moly\main.c(68): warning C4047: "=": Anzahl der Dereferenzierungen bei "field *" und "int" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\main.c(90): warning C4013: "atoi" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\porst m\documents\moly\moly\moly\main.c(111): warning C4101: "zw": Unreferenzierte lokale Variable
+c:\users\porst m\documents\moly\moly\moly\main.c(162): warning C4013: "free" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\porst m\documents\moly\moly\moly\main.c(164): warning C4129: "B": nicht erkannte Folge von Escapesequenz
+c:\users\porst m\documents\moly\moly\moly\main.c(45): warning C4716: "welcome": Muss einen Wert zurückgeben
+c:\users\porst m\documents\moly\moly\moly\main.c(158): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
   moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.exe
   moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.pdb (Full PDB)

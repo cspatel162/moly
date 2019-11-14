@@ -3,22 +3,33 @@
 struct field
 {
 	int owner;
-	char name[20];
+	char name[45];
 	char colour;
 	int price;
 	int rent[7];
 	int house;
 };
 
+struct actioncard
+{
+	char title[20];
+	char text[300];
+	int gegner_minus;
+	int gegner_plus;
+	int player_minus;
+	int player_plus;
+};
+
 //Globale Variablen auf die jedes Modul direkten Zugriff hat
-extern char name_player[10];
+extern char *name_player;
 extern int money_player;
 extern int money_ki;
 extern int position_player;
 extern int position_ki;
 extern struct field* matchfield;
-extern int colour_player[];
-extern int colour_ki[];
+extern struct actioncard* actioncards;
+extern char colour_player;
+extern char colour_ki;
 extern int number_streets;
 
 //Alle genauen Informationen zu den Prototypen sind im Wiki nachzulesen.
@@ -27,5 +38,4 @@ extern int number_streets;
 
 
 //Prototypen des Output-Moduls
-int matchfield_update(void);
-int output_field(struct field*);
+int matchfield_update(int);
