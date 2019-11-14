@@ -32,6 +32,8 @@ int turn;
 int main()
 {
 	welcome();
+	save_game();
+
 	scanf(" %s");
 }
 
@@ -65,7 +67,6 @@ int new_game()
 	fetch_data("data.txt");
 
 	printf("Geben Sie ihen Nicknamen ein :");
-	name_player = calloc(10, sizeof(char));
 	scanf(" %s", name_player);
 	printf("%s", name_player);
 	scanf(" %s");
@@ -168,10 +169,12 @@ int save_game()
 		{
 			path[17] = 49 + y;
 			file = fopen(path, "r");
-			if (file != 0) { y++; }
+			if (file != 0) { y++; fclose(file);}
 			else { x++; }
-		}
+			
+		}printf("Der neue Pfad ist %s", path);
 	}
+	
 
 	//Pfad erstellen für bestehendes Dokument und löschen des alten Dokuments
 	if (selection == 2)
@@ -210,6 +213,7 @@ int save_game()
 				printf("  %-12s   %25s  \n", name, date);
 				fclose(file);
 				counter++;
+				fclose(file);
 			}
 			else //Wenn Dokument dokument nicht vorhanden
 			{ savegame[i] = 0; }
@@ -230,7 +234,7 @@ int save_game()
 					counter++;
 					if (counter == selection)
 					{
-						path[17] = 49 + i + 1;
+						path[17] = 49 + i;
 						remove(path);
 					}
 				}
@@ -239,23 +243,23 @@ int save_game()
 
 	//Abspeichern beginnen
 	//Datei erstellen
-	file = fopen(path, "w");
-	if (file == 0) { printf("ERROR: DAtei konnte nicht geöffnet werden"); return 1; }
+	FILE *file2;
+	file2 = fopen(path, "w");
+	if (file2 == 0) { printf("ERROR: DAtei konnte nicht geöffnet werden"); return 1; }
 	//Eingabe der Daten
 	time_t now;
 	now = time(0);
 	char time[25]; time[0] = ctime(&now);
 	time[(sizeof(time) / sizeof(char)) - 1] = NULL;
-
-	fprintf(file, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%c,;", name_player, money_player, money_ki, position_player, position_ki, colour_player, colour_ki, turn, ctime(&now));
+	printf("Der neue Pfad ist %s", path);
+	fprintf(file2, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%c,;", name_player, money_player, money_ki, position_player, position_ki, colour_player, colour_ki, turn, ctime(&now));
 
 	for (int i = 0; i <= number_streets - 1; i++)
 	{
-		fprintf(file, "%i,;%s,;%c,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;\n", matchfield[i].owner, matchfield[i].name, matchfield[i].colour, matchfield[i].price, matchfield[i].rent[0], matchfield[i].rent[1], matchfield[i].rent[2], matchfield[i].rent[3], matchfield[i].rent[4], matchfield[i].rent[5], matchfield[i].rent[6], matchfield[i].house);
+		fprintf(file2, "%i,;%s,;%c,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;\n", matchfield[i].owner, matchfield[i].name, matchfield[i].colour, matchfield[i].price, matchfield[i].rent[0], matchfield[i].rent[1], matchfield[i].rent[2], matchfield[i].rent[3], matchfield[i].rent[4], matchfield[i].rent[5], matchfield[i].rent[6], matchfield[i].house);
 	}
+	fclose(file2);
 }
-
-	
 
 int fetch_data(char filename[])
 {
@@ -381,5 +385,3 @@ void end(void)
 	printf("Vielen Dank, dass du mit uns gespielt hast.\Bis zum nächsten mal.");
 	scanf(" ");
 }
-
-
