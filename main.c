@@ -32,7 +32,6 @@ int turn;
 int main()
 {
 	welcome();
-	save_game();
 
 	scanf(" %s");
 }
@@ -68,11 +67,8 @@ int new_game()
 
 	printf("Geben Sie ihen Nicknamen ein :");
 	scanf(" %s", name_player);
-	printf("%s", name_player);
-	scanf(" %s");
 		
 	matchfield_update(NULL);
-
 }
 
 int load_game()
@@ -118,7 +114,12 @@ int load_game()
 
 	counter = 0;
 	for (int i = 0; i <= 7; i++) { if (savegame[i] == 1) { counter++; } }
-	if (counter == 0) { new_game(); return 1; }//Kein Savegame vorhanden, neues Spiel wird erstellt
+	if (counter == 0)//Kein Savegame vorhanden, neues Spiel wird erstellt
+	{
+		printf("\nLeider ist kein Spielstand vorhanden.\nBeliebige Taste druecken und bestaetigen um ein neues Spiel zu starten....");
+		scanf(" %s");
+		new_game(); return 1; 
+	}
 	printf("\n\n Wählen Sie ein Savegame: ");
 	int selection;
 	scanf(" %i", &selection);
@@ -198,7 +199,7 @@ int save_game()
 				printf("  %i   %s%i            ", counter, "savegame", i + 1);
 
 				char name[15];
-				char date[25];
+				char date[30];
 				char datensatz[400];
 				char delimiter[] = ",;";
 				char *ptr;
@@ -249,10 +250,10 @@ int save_game()
 	//Eingabe der Daten
 	time_t now;
 	now = time(0);
-	char time[25]; time[0] = ctime(&now);
-	time[(sizeof(time) / sizeof(char)) - 1] = NULL;
-	printf("Der neue Pfad ist %s", path);
-	fprintf(file2, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%c,;", name_player, money_player, money_ki, position_player, position_ki, colour_player, colour_ki, turn, ctime(&now));
+	char time[30]; strcpy(time, ctime(&now));
+	time[24] = ' ';
+	printf("Die Urheit ist %s", time);
+	fprintf(file2, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%s,;\n", name_player, money_player, money_ki, position_player, position_ki, colour_player, colour_ki, turn, time);
 
 	for (int i = 0; i <= number_streets - 1; i++)
 	{
