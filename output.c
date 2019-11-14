@@ -13,10 +13,10 @@ char *gets(char *buffer);
 //Lokale Prototypen
 //Funktionen die nur in diesem Modul aufgerufen werden können und müssen.
 int show_file(char[]);
-int print_char(int, char[]);
 int absatz(void);
 void colourize(char);
 void card_whrite(int, int);
+int print_char(int anzahl, char inhalt[]);
 
 int number_streets;
 struct field *matchfield;
@@ -224,4 +224,3 @@ void card_whrite(int field_id, int zeile)
 	}
 	return 0;
 }
-
