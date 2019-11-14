@@ -31,6 +31,8 @@ int turn;
 
 int main()
 {
+	welcome();
+	scanf(" %s");
 }
 
 int welcome(void)
@@ -44,16 +46,13 @@ int welcome(void)
 		printf("Wollen Sie ein neus Spiel starten oder einen bestehenden Spielstand laden?\n 1: Neues Spiel beginnen\n 2: Bestehenden Spielstand laden\n 3: Spielregeln nachschlagen\n\n Nummer: ");
 		scanf(" %i", &action);
 	}
-	int status = 0;
-	while (status == 0)
+
+	switch (action)
 	{
-		switch (action)
-		{
-		case 1: status = 1; new_game(); break;
-		case 2: status = 1; load_game(); break;
-		case 3: status = 1; end(); break;
-		default: break;
-		}
+	case 1: new_game(); break;
+	case 2: load_game(); break;
+	case 3: end(); break;
+	default: break;
 	}
 }
 
@@ -69,7 +68,7 @@ int new_game()
 	name_player = calloc(10, sizeof(char));
 	scanf(" %s", name_player);
 	printf("%s", name_player);
-	scanf(" ");
+	scanf(" %s");
 		
 	matchfield_update(NULL);
 
@@ -85,7 +84,7 @@ int load_game()
 	printf("\n\n|Nr.| %-20s | %-12s | %25s |\n", "Savegame", "Spielername", "Speicherdatum");
 	for (int i = 0; i <= 70; i++) { printf("_"); } printf("\n");
 	//Tabellenelemente
-	int zähler = 1;
+	int counter = 1;
 	for (int i = 0; i <= 7; i++)
 	{
 			path[17] = 49 + i;
@@ -93,7 +92,7 @@ int load_game()
 			if (file1 != 0)
 			{
 				savegame[i] = 1; 
-				printf("  %i   %s%i            ", zähler, "savegame", i+1);
+				printf("  %i   %s%i            ", counter, "savegame", i+1);
 
 				char name[15];
 				char date[25];
@@ -110,25 +109,25 @@ int load_game()
 
 				printf("  %-12s   %25s  \n", name, date);
 				fclose(file1);
-				zähler++;
+				counter++;
 			}
 			else { savegame[i] = 0; }
 	}
 
 
-	zähler = 0;
-	for (int i = 0; i <= 7; i++) { if (savegame[i] == 1) { zähler++; } }
-	if (zähler == 0) { new_game(); return 1; }//Kein Savegame vorhanden, neues Spiel wird erstellt
+	counter = 0;
+	for (int i = 0; i <= 7; i++) { if (savegame[i] == 1) { counter++; } }
+	if (counter == 0) { new_game(); return 1; }//Kein Savegame vorhanden, neues Spiel wird erstellt
 	printf("\n\n Wählen Sie ein Savegame: ");
 	int selection;
 	scanf(" %i", &selection);
-	zähler = 0;
+	counter = 0;
 	for (int i = 0; i <= 7; i++)
 	{
 		if (savegame[i] == 1) 
 		{ 
-			zähler++; 
-			if (zähler == selection)
+			counter++; 
+			if (counter == selection)
 			{
 				path[17] = 49 + i;
 
@@ -157,110 +156,105 @@ int save_game()
 	FILE *file;
 	char path[25] = "savegame/savegame0.txt";
 	int selection = 0;
-	//while (selection != 1 && selection != 2)
+
+	printf("Wollen Sie ein neues Savegame speichern oder ein bestehendes überschreiben?\n1. neues Savegame\n2.überschreiben\n\nEingabe:");
+	scanf(" %i", &selection);
+		
+	//Pfad erstellen für neues Dokument
+	if (selection == 1)
 	{
-		printf("Wollen Sie ein neues Savegame speichern oder ein bestehendes überschreiben?\n1. neues Savegame\n2.überschreiben\n\nEingabe:");
-		scanf(" %i", &selection);
+		int x = 0; int y = 0;
+		while (x == 0)
+		{
+			path[17] = 49 + y;
+			file = fopen(path, "r");
+			if (file != 0) { y++; }
+			else { x++; }
+		}
 	}
 
-	
-	//while (selection != 0 && selection != 1)
+	//Pfad erstellen für bestehendes Dokument und löschen des alten Dokuments
+	if (selection == 2)
 	{
-		//Pfad erstellen für neues Dokument
-		if (selection == 1)
+		int savegame[8];
+
+		//Tabelle zum Anzeigen aller bestehender Savegames
+		//Tabellenkopf
+		printf("\n\n|Nr.| %-20s | %-12s | %25s |\n", "Savegame", "Spielername", "Speicherdatum");
+		for (int i = 0; i <= 70; i++) { printf("_"); } printf("\n");
+		
+		//Tabellenelemente
+		int counter = 1;
+		for (int i = 0; i <= 7; i++)
 		{
-			int x = 0; int y = 0;
-			while (x == 0)
-			{
-				path[17] = 50 + y;
-				file = fopen(path, "r");
-				if (file != 0) { y++; }
-				else { x++; }
+			path[17] = 49 + i;
+			file = fopen(path, "r");
+			if (file != 0)
+			{	//Ein Element wurde gefunden. Nun wird es in der Tabelle eingetragen
+				savegame[i] = 1;
+				printf("  %i   %s%i            ", counter, "savegame", i + 1);
+
+				char name[15];
+				char date[25];
+				char datensatz[400];
+				char delimiter[] = ",;";
+				char *ptr;
+
+				fgets(datensatz, 400, file);
+				ptr = strtok(datensatz, delimiter);
+				strcpy(name, ptr);
+				for (int i = 0; i <= 6; i++) { ptr = strtok(NULL, delimiter); }
+				ptr = strtok(NULL, delimiter);
+				strcpy(date, ptr);
+
+				printf("  %-12s   %25s  \n", name, date);
+				fclose(file);
+				counter++;
 			}
+			else //Wenn Dokument dokument nicht vorhanden
+			{ savegame[i] = 0; }
 		}
 
 
-		//Pfad erstellen für bestehendes Dokument
-		if (selection == 2)
-		{
-			FILE *file1;
-			int savegame[8];
-			char path[25] = "savegame/savegame0.txt";
-
-			//Tabellenkopf
-			printf("\n\n|Nr.| %-20s | %-12s | %25s |\n", "Savegame", "Spielername", "Speicherdatum");
-			for (int i = 0; i <= 70; i++) { printf("_"); } printf("\n");
-			//Tabellenelemente
-			int zähler = 1;
-			for (int i = 0; i <= 7; i++)
-			{
-				path[17] = 49 + i;
-				file1 = fopen(path, "r");
-				if (file1 != 0)
-				{
-					savegame[i] = 1;
-					printf("  %i   %s%i            ", zähler, "savegame", i + 1);
-
-					char name[15];
-					char date[25];
-					char datensatz[400];
-					char delimiter[] = ",;";
-					char *ptr;
-
-					fgets(datensatz, 400, file1);
-					ptr = strtok(datensatz, delimiter);
-					strcpy(name, ptr);
-					for (int i = 0; i <= 6; i++) { ptr = strtok(NULL, delimiter); }
-					ptr = strtok(NULL, delimiter);
-					strcpy(date, ptr);
-
-					printf("  %-12s   %25s  \n", name, date);
-					fclose(file1);
-					zähler++;
-				}
-				else { savegame[i] = 0; }
-			}
-
-
-			zähler = 0;
-			for (int i = 0; i <= 7; i++) { if (savegame[i] == 1) { zähler++; } }
-			if (zähler == 0) { new_game(); return 1; }//Kein Savegame vorhanden, neues Spiel wird erstellt
+			counter = 0;
+			for (int i = 0; i <= 7; i++) { if (savegame[i] == 1) { counter++; } }
+			if (counter == 0) { new_game(); return 0; }//Kein Savegame vorhanden, neues Spiel wird erstellt
 			printf("\n\n Wählen Sie ein Savegame: ");
-			int selection;
+			selection = 0;
 			scanf(" %i", &selection);
-			zähler = 0;
+			counter = 0;
 			for (int i = 0; i <= 7; i++)
 			{
 				if (savegame[i] == 1)
 				{
-					zähler++;
-					if (zähler == selection)
+					counter++;
+					if (counter == selection)
 					{
-						path[17] = 49 + i;
+						path[17] = 49 + i + 1;
 						remove(path);
 					}
 				}
 			}
-		}
+	}
 
-		//Abspeichern beginnen
-		//Datei erstellen
-		file = fopen(path, "w");
-		if (file == 0) { printf("ERROR: DAtei konnte nicht geöffnet werden"); return 1; }
-		//Eingabe der Daten
-		time_t now;
-		now = time(0);
-		char time[25]; time[0] = ctime(&now);
-		time[(sizeof(time) / sizeof(char)) - 1] = NULL;
+	//Abspeichern beginnen
+	//Datei erstellen
+	file = fopen(path, "w");
+	if (file == 0) { printf("ERROR: DAtei konnte nicht geöffnet werden"); return 1; }
+	//Eingabe der Daten
+	time_t now;
+	now = time(0);
+	char time[25]; time[0] = ctime(&now);
+	time[(sizeof(time) / sizeof(char)) - 1] = NULL;
 
-		fprintf(file, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%c,;", name_player, money_player, money_ki, position_player, position_ki, colour_player, colour_ki, turn, ctime(&now));
+	fprintf(file, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%c,;", name_player, money_player, money_ki, position_player, position_ki, colour_player, colour_ki, turn, ctime(&now));
 
-		for (int i = 0; i <= number_streets - 1; i++)
-		{
-			fprintf(file, "%i,;%s,;%c,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;\n", matchfield[i].owner, matchfield[i].name, matchfield[i].colour, matchfield[i].price, matchfield[i].rent[0], matchfield[i].rent[1], matchfield[i].rent[2], matchfield[i].rent[3], matchfield[i].rent[4], matchfield[i].rent[5], matchfield[i].rent[6], matchfield[i].house);
-		}
+	for (int i = 0; i <= number_streets - 1; i++)
+	{
+		fprintf(file, "%i,;%s,;%c,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;\n", matchfield[i].owner, matchfield[i].name, matchfield[i].colour, matchfield[i].price, matchfield[i].rent[0], matchfield[i].rent[1], matchfield[i].rent[2], matchfield[i].rent[3], matchfield[i].rent[4], matchfield[i].rent[5], matchfield[i].rent[6], matchfield[i].house);
 	}
 }
+
 	
 
 int fetch_data(char filename[])
