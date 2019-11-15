@@ -147,9 +147,10 @@ void card_whrite(int field_id, int zeile)
 	GetConsoleScreenBufferInfo(hStdOut, &Screen);
 	wOldColAttr = Screen.wAttributes;
 
+	//Sollte eine Aktionskarte ausgegeben werden wird dieser Abschnitt ausgeführt und beendet die Funktion
 	if (strcmp(matchfield[field_id].name, "Aktionskarte") == 0)
 	{
-
+		//Erstellen des Abstands zum Spielfeld
 		print_char(ABSTAND, " ");
 		switch (zeile)
 		{
@@ -165,6 +166,7 @@ void card_whrite(int field_id, int zeile)
 		return 0;
 	}
 
+	//Sollte das Startfeld ausgegeben werden wird dieser Abschnitt ausgeführt und beendet die Funktion
 	if (strcmp(matchfield[field_id].name, "Los") == 0)
 	{
 		print_char(ABSTAND, " ");
@@ -178,6 +180,7 @@ void card_whrite(int field_id, int zeile)
 		return 0;
 	}
 	
+	//Sollte eine Straße ausgegeben werden wird dieser Abschnitt ausgeführt und beendet die Funktion
 	if (field_id != NULL)
 	{
 
@@ -203,6 +206,8 @@ void card_whrite(int field_id, int zeile)
 		default: break;
 		}
 	}
+
+	//Wenn gar keine Karte ausgegeben werden soll.
 	else 
 	{
 		print_char(ABSTAND, " ");

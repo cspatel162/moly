@@ -12,7 +12,7 @@ char *gets(char *buffer);
 //Prototypen die nur in diesem Modul zur Verfügung stehen
 int fetch_data(void);
 void end(void);
-int welcome(void);
+void welcome(void);
 int new_game(void);
 int load_game(void);
 int save_game(void);
@@ -33,13 +33,11 @@ int turn;
 int main()
 {
 	welcome();
-	printf("Erfolgreich importiert!");
-	matchfield_update(position_player, NULL);
-	save_game();
+
 	scanf(" %s");
 }
 
-int welcome(void)
+void welcome(void)
 {	
 	show_file("logo.txt");
 	printf("Herzlich willkommen bei MOLY, der digitalen Form von Monopoly.\n");
@@ -70,8 +68,6 @@ int new_game()
 
 	printf("Geben Sie ihen Nicknamen ein :");
 	scanf(" %s", name_player);
-		
-	matchfield_update(NULL, NULL);
 }
 
 int load_game()
@@ -79,7 +75,7 @@ int load_game()
 	FILE *file1;
 	int savegame[8];
 	char path[25] = "savegame/savegame0.txt";
-
+	//Erstellen einer Tabelle mit allen Savegames
 	//Tabellenkopf
 	printf("\n\n|Nr.| %-20s | %-12s | %25s |\n", "Savegame", "Spielername", "Speicherdatum");
 	for (int i = 0; i <= 70; i++) { printf("_"); } printf("\n");
@@ -114,7 +110,7 @@ int load_game()
 			else { savegame[i] = 0; }
 	}
 
-
+	//ES wird nachgezählt wie viele verfügbare Savegames vorhanden sind
 	counter = 0;
 	for (int i = 0; i <= 7; i++) { if (savegame[i] == 1) { counter++; } }
 	if (counter == 0)//Kein Savegame vorhanden, neues Spiel wird erstellt
@@ -141,12 +137,10 @@ int load_game()
 				scanf(" %i", &selection);
 				switch (selection)
 				{
-				case 1: fetch_data(path); break;
-				case 2: remove(path); printf("Datei wird gelöshct!"); return 0; break;
-				default: return 0;
-					break;
+				case 1: fetch_data(path) return 0; break;
+				case 2: remove(path); printf("Datei wird gelöshct!"); return 2; break;
 				}
-				return 1;
+				return 3;
 			}
 			
 		}
@@ -278,7 +272,7 @@ int fetch_data(char filename[])
 		printf("ERROR: Die Datei %s konnte nicht geoeffnet werden.", filename);
 		return 1;
 	}
-	char zw[100];
+	char zw[200];
 	while (!feof(file))
 	{
 		fgets(zw, 200, file);
@@ -286,7 +280,8 @@ int fetch_data(char filename[])
 	}
 	zeilenanzahl = zeilenanzahl - 1;
 	fclose(file);
-	//Reservieren des Speicherplatzes
+
+	//Reservieren des Speicherplatzes für den Heap (für alle Straßendaten)
 	matchfield = calloc(zeilenanzahl, sizeof(struct field));
 	if (matchfield == 0) { printf("Nicht genügend Speicherplatz vorhanden!\n"); return 1; }
 	//Daten einlesen
@@ -294,7 +289,7 @@ int fetch_data(char filename[])
 	if (file == 0)
 	{
 		printf("ERROR: Die Datei %s konnte nicht geoeffnet werden.", "streetdata.txt");
-		return 1;
+		return 2;
 	}
 
 	//Einlesen aller Daten
@@ -303,7 +298,7 @@ int fetch_data(char filename[])
 	char delimiter[] = ",;";
 	char *ptr;
 	
-	//Einlesen Spieldaten
+	//Einlesen aller allgemeinen Spieldaten
 	fgets(datensatz, 400, file);
 	ptr = strtok(datensatz, delimiter);
 	name_player = calloc(10, sizeof(char));
@@ -331,7 +326,7 @@ int fetch_data(char filename[])
 	turn = atoi(ptr);
 
 	
-	//Einlesen Strassen
+	//Einlesen aller Strassen
 	while (!feof(file))
 	{
 		struct field zw = *(matchfield + zaehler);
