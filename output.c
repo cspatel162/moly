@@ -13,30 +13,21 @@ char *gets(char *buffer);
 //Lokale Prototypen
 //Funktionen die nur in diesem Modul aufgerufen werden können und müssen.
 int show_file(char[]);
-int absatz(void);
+void absatz(void);
 void colourize(char);
 void card_whrite(int, int);
-int print_char(int anzahl, char inhalt[]);
-
-int number_streets;
-struct field *matchfield;
-char colour_player;
-char colour_ki;
-int position_player;
-int position_ki;
-char *name_player;
+void print_char(int anzahl, char inhalt[]);
 
 CONSOLE_SCREEN_BUFFER_INFO Screen;
 WORD wOldColAttr;
 HANDLE hStdOut;
 
 int show_file(char filename[15])
-{
-	char zeile[200];
-	FILE *file;
-
+{	
 	printf("\n");
-
+	
+	char zeile[500];
+	FILE *file;
 	file = fopen(filename, "r");
 	if (file == 0)
 	{
@@ -46,7 +37,7 @@ int show_file(char filename[15])
 
 	while (!feof(file))
 	{
-		fgets(zeile, 200, file);
+		fgets(zeile, 500, file);
 		printf("%s", zeile);
 	}
 	printf("\n");
@@ -54,7 +45,7 @@ int show_file(char filename[15])
 	return 0;
 }
 
-int matchfield_update(int field_id)
+void matchfield_update(int field_id, char text[200])
 {
 	int zeile = 0;
 
@@ -118,8 +109,9 @@ int matchfield_update(int field_id)
 
 
 //lokale Funktionen um die hauptfunktionen übersichtlicher zu gestalten
+
 //Vorgefertige Ausgabe Funktionen
-int print_char(int anzahl, char inhalt[])
+void print_char(int anzahl, char inhalt[])
 {
 	for (int i = 0; i <= anzahl; i++)
 	{
@@ -127,7 +119,7 @@ int print_char(int anzahl, char inhalt[])
 	}
 }
 
-int absatz(void)
+void absatz(void)
 {
 	printf("\n");
 }

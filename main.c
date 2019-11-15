@@ -17,22 +17,25 @@ int new_game(void);
 int load_game(void);
 int save_game(void);
 
-//int number_street;
 struct field *matchfield;
+int number_streets;
+char *name_player;
 char colour_player;
 char colour_ki;
 int position_player;
 int position_ki;
 int money_player;
 int money_ki;
-char *name_player;
+
 int turn;
 
 
 int main()
 {
 	welcome();
-
+	printf("Erfolgreich importiert!");
+	matchfield_update(position_player, NULL);
+	save_game();
 	scanf(" %s");
 }
 
@@ -68,7 +71,7 @@ int new_game()
 	printf("Geben Sie ihen Nicknamen ein :");
 	scanf(" %s", name_player);
 		
-	matchfield_update(NULL);
+	matchfield_update(NULL, NULL);
 }
 
 int load_game()
@@ -92,7 +95,7 @@ int load_game()
 				printf("  %i   %s%i            ", counter, "savegame", i+1);
 
 				char name[15];
-				char date[25];
+				char date[30];
 				char datensatz[400];
 				char delimiter[] = ",;";
 				char *ptr;
@@ -199,7 +202,7 @@ int save_game()
 				printf("  %i   %s%i            ", counter, "savegame", i + 1);
 
 				char name[15];
-				char date[30];
+				char date[35];
 				char datensatz[400];
 				char delimiter[] = ",;";
 				char *ptr;
@@ -257,7 +260,8 @@ int save_game()
 
 	for (int i = 0; i <= number_streets - 1; i++)
 	{
-		fprintf(file2, "%i,;%s,;%c,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;\n", matchfield[i].owner, matchfield[i].name, matchfield[i].colour, matchfield[i].price, matchfield[i].rent[0], matchfield[i].rent[1], matchfield[i].rent[2], matchfield[i].rent[3], matchfield[i].rent[4], matchfield[i].rent[5], matchfield[i].rent[6], matchfield[i].house);
+		fprintf(file2, "%i,;%s,;%c,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;", matchfield[i].owner, matchfield[i].name, matchfield[i].colour, matchfield[i].price, matchfield[i].rent[0], matchfield[i].rent[1], matchfield[i].rent[2], matchfield[i].rent[3], matchfield[i].rent[4], matchfield[i].rent[5], matchfield[i].rent[6], matchfield[i].house);
+		if (i <= (number_streets - 2)) { fprintf(file2, "\n"); }
 	}
 	fclose(file2);
 }
@@ -360,7 +364,6 @@ int fetch_data(char filename[])
 		ptr = strtok(NULL, delimiter);
 		matchfield[zaehler].house = atoi(ptr);
 		//printf("Haeuser     : %i\n", (matchfield + zaehler)->house);
-		
 		zaehler++;
 	}
 	

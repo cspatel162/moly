@@ -38,4 +38,4 @@ extern int number_streets;
 
 
 //Prototypen des Output-Moduls
-int matchfield_update(int);
+void matchfield_update(int, char[]);
