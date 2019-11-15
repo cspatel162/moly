@@ -1,39 +1,27 @@
-﻿  output.c
-c:\users\user\documents\moly\moly\moly\output.c(166): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\user\documents\moly\moly\moly\output.c(176): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\user\documents\moly\moly\moly\output.c(176): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\user\documents\moly\moly\moly\output.c(180): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\user\documents\moly\moly\moly\output.c(184): warning C4047: "!=": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\user\documents\moly\moly\moly\output.c(191): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\user\documents\moly\moly\moly\output.c(191): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\user\documents\moly\moly\moly\output.c(204): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\user\documents\moly\moly\moly\output.c(204): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\user\documents\moly\moly\moly\output.c(217): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\user\documents\moly\moly\moly\output.c(217): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\user\documents\moly\moly\moly\output.c(222): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-  main.c
-c:\users\user\documents\moly\moly\moly\main.c(39): warning C4473: "scanf": nicht genügend Argumente für Formatzeichenfolge übergeben
-  c:\users\user\documents\moly\moly\moly\main.c(39): note: Platzhalter und deren Parameter erwarten 1 variadic-Argumente, es wurden aber 0 variadic-Argumente bereitgestellt.
-  c:\users\user\documents\moly\moly\moly\main.c(39): note: Das fehlende variadic-Argument "1" ist für die Zeichenfolge "%s" erforderlich.
-c:\users\user\documents\moly\moly\moly\main.c(44): warning C4013: "show_file" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\user\documents\moly\moly\moly\main.c(65): warning C4013: "system" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\user\documents\moly\moly\moly\main.c(69): warning C4087: "fetch_data": Mit "void"-Parameterliste deklariert
-c:\users\user\documents\moly\moly\moly\main.c(142): warning C4087: "fetch_data": Mit "void"-Parameterliste deklariert
-c:\users\user\documents\moly\moly\moly\main.c(121): warning C4473: "scanf": nicht genügend Argumente für Formatzeichenfolge übergeben
-  c:\users\user\documents\moly\moly\moly\main.c(121): note: Platzhalter und deren Parameter erwarten 1 variadic-Argumente, es wurden aber 0 variadic-Argumente bereitgestellt.
-  c:\users\user\documents\moly\moly\moly\main.c(121): note: Das fehlende variadic-Argument "1" ist für die Zeichenfolge "%s" erforderlich.
-c:\users\user\documents\moly\moly\moly\main.c(268): warning C4027: Funktion ohne Liste formaler Parameter deklariert
-c:\users\user\documents\moly\moly\moly\main.c(288): warning C4013: "calloc" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\user\documents\moly\moly\moly\main.c(288): warning C4047: "=": Anzahl der Dereferenzierungen bei "field *" und "int" unterschiedlich
-c:\users\user\documents\moly\moly\moly\main.c(307): warning C4047: "=": Anzahl der Dereferenzierungen bei "char *" und "int" unterschiedlich
-c:\users\user\documents\moly\moly\moly\main.c(311): warning C4013: "atoi" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\user\documents\moly\moly\moly\main.c(335): warning C4101: "zw": Unreferenzierte lokale Variable
-c:\users\user\documents\moly\moly\moly\main.c(385): warning C4013: "free" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\user\documents\moly\moly\moly\main.c(387): warning C4129: "B": nicht erkannte Folge von Escapesequenz
-  Code wird generiert...
-c:\users\user\documents\moly\moly\moly\main.c(73): warning C4716: "new_game": Muss einen Wert zurückgeben
-c:\users\user\documents\moly\moly\moly\main.c(155): warning C4715: "load_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
-c:\users\user\documents\moly\moly\moly\main.c(381): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
-c:\users\user\documents\moly\moly\moly\main.c(265): warning C4715: "save_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
+﻿  main.c
+c:\users\user\documents\moly\moly\moly\main.c(36): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
+c:\users\user\documents\moly\moly\moly\main.c(36): warning C4024: "matchfield_update": unterschiedliche Typen für formalen und übergebenen Parameter 1
+c:\users\user\documents\moly\moly\moly\main.c(37): warning C4473: "scanf": nicht genügend Argumente für Formatzeichenfolge übergeben
+  c:\users\user\documents\moly\moly\moly\main.c(37): note: Platzhalter und deren Parameter erwarten 1 variadic-Argumente, es wurden aber 0 variadic-Argumente bereitgestellt.
+  c:\users\user\documents\moly\moly\moly\main.c(37): note: Das fehlende variadic-Argument "1" ist für die Zeichenfolge "%s" erforderlich.
+c:\users\user\documents\moly\moly\moly\main.c(42): warning C4013: "show_file" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\user\documents\moly\moly\moly\main.c(63): warning C4013: "system" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\user\documents\moly\moly\moly\main.c(67): warning C4087: "fetch_data": Mit "void"-Parameterliste deklariert
+c:\users\user\documents\moly\moly\moly\main.c(140): warning C4087: "fetch_data": Mit "void"-Parameterliste deklariert
+c:\users\user\documents\moly\moly\moly\main.c(119): warning C4473: "scanf": nicht genügend Argumente für Formatzeichenfolge übergeben
+  c:\users\user\documents\moly\moly\moly\main.c(119): note: Platzhalter und deren Parameter erwarten 1 variadic-Argumente, es wurden aber 0 variadic-Argumente bereitgestellt.
+  c:\users\user\documents\moly\moly\moly\main.c(119): note: Das fehlende variadic-Argument "1" ist für die Zeichenfolge "%s" erforderlich.
+c:\users\user\documents\moly\moly\moly\main.c(264): warning C4027: Funktion ohne Liste formaler Parameter deklariert
+c:\users\user\documents\moly\moly\moly\main.c(285): warning C4013: "calloc" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\user\documents\moly\moly\moly\main.c(285): warning C4047: "=": Anzahl der Dereferenzierungen bei "field *" und "int" unterschiedlich
+c:\users\user\documents\moly\moly\moly\main.c(304): warning C4047: "=": Anzahl der Dereferenzierungen bei "char *" und "int" unterschiedlich
+c:\users\user\documents\moly\moly\moly\main.c(308): warning C4013: "atoi" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\user\documents\moly\moly\moly\main.c(332): warning C4101: "zw": Unreferenzierte lokale Variable
+c:\users\user\documents\moly\moly\moly\main.c(382): warning C4013: "free" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\user\documents\moly\moly\moly\main.c(384): warning C4129: "B": nicht erkannte Folge von Escapesequenz
+c:\users\user\documents\moly\moly\moly\main.c(71): warning C4716: "new_game": Muss einen Wert zurückgeben
+c:\users\user\documents\moly\moly\moly\main.c(378): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
+c:\users\user\documents\moly\moly\moly\main.c(261): warning C4715: "save_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
+c:\users\user\documents\moly\moly\moly\main.c(151): warning C4715: "load_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
   Moly.vcxproj -> C:\Users\User\Documents\moly\Moly\Debug\Moly.exe
   Moly.vcxproj -> C:\Users\User\Documents\moly\Moly\Debug\Moly.pdb (Full PDB)

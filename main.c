@@ -32,8 +32,8 @@ int turn;
 
 int main()
 {
-	welcome();
-
+	new_game();
+	matchfield_update(NULL, NULL);
 	scanf(" %s");
 }
 
@@ -137,7 +137,7 @@ int load_game()
 				scanf(" %i", &selection);
 				switch (selection)
 				{
-				case 1: fetch_data(path) return 0; break;
+				case 1: fetch_data(path); return 0; break;
 				case 2: remove(path); printf("Datei wird gelöshct!"); return 2; break;
 				}
 				return 3;
