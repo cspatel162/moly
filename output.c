@@ -200,9 +200,15 @@ void card_whrite(int field_id, int zeile)
 		case 10: printf("||"); printf(" 4 Haeuser:   %6i", matchfield[field_id].rent[4]); print_char(3, " "); printf("||"); break;
 		case 11: printf("||"); printf(" Hotel    :   %6i", matchfield[field_id].rent[5]); print_char(3, " "); printf("||"); break;
 		case 12: print_char(27, "-"); break;
-		case 14: printf("Dein Nickname  : %-10s", name_player); break;
-		case 15: printf("Deine Farbe    : "); colourize(colour_player); printf(" X "); colourize("x"); printf(" %c", colour_player); break;
-		case 16: printf("Ihr Kontostand :  %8i", money_player); break;
+		case 13: printf("||"); printf(" Kaufpreise Haeuser:"); print_char(3, " "); printf("||"); break;
+		case 14: printf("||"); printf(" 1.Haus:   %6i", matchfield[field_id].price_house[0]); print_char(6, " "); printf("||"); break;
+		case 15: printf("||"); printf(" 2.Haus:   %6i", matchfield[field_id].price_house[1]); print_char(6, " "); printf("||"); break;
+		case 16: printf("||"); printf(" 3.Haus:   %6i", matchfield[field_id].price_house[2]); print_char(6, " "); printf("||"); break;
+		case 17: printf("||"); printf(" 4.Haus:   %6i", matchfield[field_id].price_house[3]); print_char(6, " "); printf("||"); break;
+		case 18: print_char(27, "-"); break;
+		case 21: printf("Dein Nickname  : %-10s", name_player); break;
+		case 22: printf("Deine Farbe    : "); colourize(colour_player); printf(" X "); colourize("x"); printf(" %c", colour_player); break;
+		case 23: printf("Ihr Kontostand :  %8i", money_player); break;
 		default: break;
 		}
 	}

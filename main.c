@@ -33,7 +33,7 @@ int turn;
 int main()
 {
 	new_game();
-	matchfield_update(NULL, NULL);
+	matchfield_update( 3, NULL);
 	scanf(" %s");
 }
 
@@ -359,6 +359,15 @@ int fetch_data(char filename[])
 		ptr = strtok(NULL, delimiter);
 		matchfield[zaehler].house = atoi(ptr);
 		//printf("Haeuser     : %i\n", (matchfield + zaehler)->house);
+		
+		//Einlesen Häuserpreise
+		for (int i = 0; i <= 3; i++)
+		{
+			ptr = strtok(NULL, delimiter);
+			matchfield[zaehler].price_house[i] = atoi(ptr);
+			//printf("Miete mit %i Haeusern: %i\n",i , (matchfield + zaehler)->rent[i]);
+		}
+		
 		zaehler++;
 	}
 	

@@ -8,6 +8,7 @@ struct field
 	int price;
 	int rent[7];
 	int house;
+	int price_house[4];
 };
 
 struct actioncard
