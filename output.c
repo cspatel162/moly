@@ -12,7 +12,7 @@ char *gets(char *buffer);
 
 //Lokale Prototypen
 //Funktionen die nur in diesem Modul aufgerufen werden können und müssen.
-int show_file(char[]);
+//int show_file(char[]);
 void absatz(void);
 void colourize(char);
 void card_whrite(int, int);
@@ -45,7 +45,7 @@ int show_file(char filename[15])
 	return 0;
 }
 
-void matchfield_update(int field_id, char text[200])
+void matchfield_update(int field_id, int action_id)
 {
 	int zeile = 0;
 
@@ -59,10 +59,10 @@ void matchfield_update(int field_id, char text[200])
 	system("cls");
 	//show_file("logo.txt");
 	//Header der Tabelle erstellen
-	print_char(78, "="); card_whrite(field_id, zeile); zeile++;  absatz();
-	printf("||%45s  || %-8s||%-7s||%-7s||", "Straße", "Preis", "Haeuser", " "); card_whrite(field_id, zeile); zeile++; absatz();
-	print_char(78, "="); card_whrite(field_id, zeile); zeile++; absatz();
-	print_char(78, "="); card_whrite(field_id, zeile); zeile++; absatz();
+	print_char(78, "="); card_whrite(field_id, zeile, action_id); zeile++;  absatz();
+	printf("||%45s  || %-8s||%-7s||%-7s||", "Straße", "Preis", "Haeuser", " "); card_whrite(field_id, zeile, action_id); zeile++; absatz();
+	print_char(78, "="); card_whrite(field_id, zeile, action_id); zeile++; absatz();
+	print_char(78, "="); card_whrite(field_id, zeile, action_id); zeile++; absatz();
 	
 	for (int i = 0; i <= number_streets-1; i++)
 	{
@@ -101,8 +101,8 @@ void matchfield_update(int field_id, char text[200])
 			else
 			{printf("      ");}
 		}
-		printf("||"); card_whrite(field_id, zeile); zeile++; absatz();
-		print_char(78, "-"); card_whrite(field_id, zeile); zeile++; absatz();
+		printf("||"); card_whrite(field_id, zeile, action_id); zeile++; absatz();
+		print_char(78, "-"); card_whrite(field_id, zeile, action_id); zeile++; absatz();
 	}
 	printf("\n\n");
 }
@@ -139,7 +139,7 @@ void colourize(char colour)
 	}
 }
 
-void card_whrite(int field_id, int zeile)
+void card_whrite(int field_id, int zeile, int action_id)
 {
 	//Anweisungen
 	hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -150,19 +150,26 @@ void card_whrite(int field_id, int zeile)
 	//Sollte eine Aktionskarte ausgegeben werden wird dieser Abschnitt ausgeführt und beendet die Funktion
 	if (strcmp(matchfield[field_id].name, "Aktionskarte") == 0)
 	{
+		int z = 0;
+
 		//Erstellen des Abstands zum Spielfeld
 		print_char(ABSTAND, " ");
 		switch (zeile)
 		{
-		case 0: print_char(40, "="); break;
-		case 1: printf("||"); print_char(36, " "); printf("||"); break;
-		case 2: printf("||"); print_char(36, " "); printf("||"); break;
-		case 3: printf("||"); print_char(36, " "); printf("||"); break;
-		case 4: printf("||"); print_char(36, " "); printf("||"); break;
-		case 5: printf("||"); print_char(36, " "); printf("||"); break;
-		case 6: print_char(40, "="); break;
+		case 0: print_char(45, "="); break;
+		case 1: printf("||   "); printf("%-35s", "Aktionskarte");  printf("   ||"); break;
+		case 2: print_char(45, "="); break;
+		case 3: printf("||"); for (z = 0; z <= 41; z++) {  printf("%1c", actioncards[action_id].text[z]); } printf("||"); break;
+		case 4: printf("||"); for (z = 42; z <= 83; z++) { printf("%1c", actioncards[action_id].text[z]); } printf("||"); break;
+		case 5: printf("||"); for (z = 84; z <= 126; z++) { printf("%1c", actioncards[action_id].text[z]); } printf("||"); break; 
+		case 6: print_char(45, "="); break;
+
+		case 14: printf("Dein Nickname  : %-10s", name_player); break;
+		case 15: printf("Deine Farbe    : "); colourize(colour_player); printf(" X "); colourize("x"); printf(" %c", colour_player); break;
+		case 16: printf("Ihr Kontostand :  %8i", money_player); break;
 		default: break;
 		}
+
 		return 0;
 	}
 

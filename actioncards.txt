@@ -1,0 +1,1 @@
+﻿Strafe,;Du musst eine Strafe zahlen. ,;40,;40,;50,;50,;,;,;,;

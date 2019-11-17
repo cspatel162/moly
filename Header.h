@@ -14,7 +14,7 @@ struct field
 struct actioncard
 {
 	char title[20];
-	char text[300];
+	char text[200];
 	int gegner_minus;
 	int gegner_plus;
 	int player_minus;
@@ -32,6 +32,7 @@ extern struct actioncard* actioncards;
 extern char colour_player;
 extern char colour_ki;
 extern int number_streets;
+extern int number_actioncards;
 
 //Alle genauen Informationen zu den Prototypen sind im Wiki nachzulesen.
 
