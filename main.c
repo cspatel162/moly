@@ -32,8 +32,11 @@ int turn;
 
 int main()
 {
+	spielzug();
 	new_game();
+	
 	matchfield_update( 3, NULL);
+	
 	scanf(" %s");
 }
 

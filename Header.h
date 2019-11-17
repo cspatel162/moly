@@ -40,3 +40,9 @@ extern int number_streets;
 
 //Prototypen des Output-Moduls
 void matchfield_update(int, char[]);
+
+
+
+//Prototypen des Spielmechanik-Moduls
+
+void spielzug(void);

@@ -5,6 +5,68 @@
 char *gets(char *buffer);
 
 
+// Einbindung von Headerdatei und C-Bibliotheken
+#include "Header.h"
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
+
+
+// Modul Prototypen
+int wuerfel (int, int);
+
+
+
+
+void spielzug (void) 
+{
+	srand(time(NULL));		//Zufallszahlen Reset
+			
+	printf("%i", wuerfel(1, 6));
+
+
+
+
+}
+
+
+int wuerfel (int min, int max) 
+{
+
+	return rand() % (max - min) + min;		// Erzeugen Zufallszahl zwischen min - max
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 	1. Wuerfelfunktion [Zufallszahl von 1 - 6] mit Ausgabe an Spieler printf
@@ -25,5 +87,3 @@ char *gets(char *buffer);
 	
 	
 	*/
-
-	// NEW TEST NEW TEST
