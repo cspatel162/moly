@@ -85,11 +85,12 @@ int fetch_actioncards(void)
 
 
 int actioncards_play(int person)
-{
+{	
+
 	if (person == 1)
 	{ 
 		//zufällige aktionsarte ziehen
-		int id = random(0; number_actioncards);
+		int id = wuerfel(0, number_actioncards);  //es wird mit der Random/Wuerfel funktion aus dem Modul Spielmechanik gearbeitet
 		
 		money_player = money_player + actioncards[id].player_plus - actioncards[id].player_minus;
 		money_ki = money_ki + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
@@ -102,7 +103,8 @@ int actioncards_play(int person)
 	if (person == 2)
 	{
 		//zufällige Aktionskarten ziehen
-		int id = random(0; number_actioncards);
+		
+		int id = wuerfel(0,number_actioncards);  //es wird mit der Random/Wuerfel funktion aus dem Modul Spielmechanik gearbeitet
 
 		money_ki = money_player + actioncards[id].player_plus - actioncards[id].player_minus;
 		money_player = money_ki + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
