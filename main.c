@@ -38,7 +38,7 @@ int main()
 	//spielzug();
 	new_game();
 	
-	matchfield_update( 2, NULL);
+	matchfield_update( 5, 0);
 	//printf("%s", actioncards[0].text[0]);
 	//for (int z = 0; z <= 5; z++) {	printf("%s", actioncards[0].text[z]);}
 	scanf(" %s");

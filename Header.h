@@ -47,3 +47,7 @@ void matchfield_update(int, char[]);
 //Prototypen des Spielmechanik-Moduls
 
 void spielzug(void);
+
+//Prototypen Modul Aktionskarten
+int fetch_actioncards(void);
+int actioncards_play(int);

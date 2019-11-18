@@ -49,11 +49,15 @@ c:\users\fabio\documents\moly\moly\moly\main.c(316): warning C4013: "atoi" undef
 c:\users\fabio\documents\moly\moly\moly\main.c(340): warning C4101: "zw": Unreferenzierte lokale Variable
 c:\users\fabio\documents\moly\moly\moly\main.c(399): warning C4013: "free" undefiniert; Annahme: extern mit Rückgabetyp int
 c:\users\fabio\documents\moly\moly\moly\main.c(401): warning C4129: "B": nicht erkannte Folge von Escapesequenz
-c:\users\fabio\documents\moly\moly\moly\main.c(426): warning C4047: "=": Anzahl der Dereferenzierungen bei "actioncard *" und "int" unterschiedlich
+  Aktionskarten.c
+c:\users\fabio\documents\moly\moly\moly\aktionskarten.c(37): warning C4013: "calloc" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\fabio\documents\moly\moly\moly\aktionskarten.c(37): warning C4047: "=": Anzahl der Dereferenzierungen bei "actioncard *" und "int" unterschiedlich
+c:\users\fabio\documents\moly\moly\moly\aktionskarten.c(68): warning C4013: "atoi" undefiniert; Annahme: extern mit Rückgabetyp int
+c:\users\fabio\documents\moly\moly\moly\aktionskarten.c(93): warning C4013: "wuerfel" undefiniert; Annahme: extern mit Rückgabetyp int
   Code wird generiert...
-c:\users\fabio\documents\moly\moly\moly\main.c(159): warning C4715: "load_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
 c:\users\fabio\documents\moly\moly\moly\main.c(79): warning C4716: "new_game": Muss einen Wert zurückgeben
 c:\users\fabio\documents\moly\moly\moly\main.c(395): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
+c:\users\fabio\documents\moly\moly\moly\main.c(159): warning C4715: "load_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
 c:\users\fabio\documents\moly\moly\moly\main.c(269): warning C4715: "save_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
   Moly.vcxproj -> C:\Users\Fabio\Documents\Moly\Moly\Debug\Moly.exe
   Moly.vcxproj -> C:\Users\Fabio\Documents\Moly\Moly\Debug\Moly.pdb (Full PDB)
