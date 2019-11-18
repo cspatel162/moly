@@ -179,7 +179,8 @@ void spielzug(void)
 			 {
 				 //Kontrolle ob alle Straßen im Besitz
 
-				 a = position_player;
+				 
+				  a = position_player;
 					 switch (a) {
 
 					 case 1:		if (strasse1 == 2) b = 1; break;		// Wenn b auf 1 gesetzt wird dann ist die Straßenkombi auf der gestanden wird im Besitz
@@ -207,6 +208,27 @@ void spielzug(void)
 					 
 
 					 }
+
+
+				 /*
+				 char colour = matchfield[position_player].colour;
+				 int exist = 0;
+				 int own = 0;
+
+				 for (int y = 0; y <= number_streets -1; y++)
+				 {
+					 if (matchfield[y].colour == colour) { exist++; }
+				 }
+				 for (int z = 0; z <= number_streets -1; z++)
+				 {
+					 if (matchfield[z].colour == colour && matchfield[z].owner == 1) //Wenn Besitzer user und farbe passend   ACHTUNG MIT 1 FÜR USER
+					 {own++; }
+				 }
+
+				 if (exist == own) { b = 1; }
+
+				 */
+
 
 					 if (b == 1) 
 					 {

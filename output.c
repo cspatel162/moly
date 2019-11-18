@@ -107,7 +107,6 @@ void matchfield_update(int field_id, int action_id)
 	printf("\n\n");
 }
 
-
 //lokale Funktionen um die hauptfunktionen übersichtlicher zu gestalten
 
 //Vorgefertige Ausgabe Funktionen
@@ -131,6 +130,8 @@ void colourize(char colour)
 		case 'g':/*grün*/	 SetConsoleTextAttribute(hStdOut, 32); break;
 		case 'y':/*gelb*/	 SetConsoleTextAttribute(hStdOut, 160); break;
 		case 'b':/*blau*/	 SetConsoleTextAttribute(hStdOut, 31); break;
+		case 'h':/*türkis*/	 SetConsoleTextAttribute(hStdOut, 176); break;
+		case 'i':/*grau*/	 SetConsoleTextAttribute(hStdOut, 128); break;
 		case 'r':/*rot*/	 SetConsoleTextAttribute(hStdOut, 64); break;
 		case 'o':/*orange*/	 SetConsoleTextAttribute(hStdOut, 96); break;
 		case 'p':/*pink*/	 SetConsoleTextAttribute(hStdOut, 91); break;
