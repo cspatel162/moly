@@ -1,25 +1,11 @@
-﻿  output.c
-c:\users\porst m\documents\moly\moly\moly\output.c(49): warning C4028: Formaler Parameter "2" unterscheidet sich von der Deklaration
-c:\users\porst m\documents\moly\moly\moly\output.c(62): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\porst m\documents\moly\moly\moly\output.c(63): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\porst m\documents\moly\moly\moly\output.c(64): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\porst m\documents\moly\moly\moly\output.c(65): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\porst m\documents\moly\moly\moly\output.c(104): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\porst m\documents\moly\moly\moly\output.c(105): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\porst m\documents\moly\moly\moly\output.c(143): warning C4029: Deklarierte Liste formaler Parameter weicht von der Definition ab
-c:\users\porst m\documents\moly\moly\moly\output.c(168): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(168): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(173): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\porst m\documents\moly\moly\moly\output.c(183): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(183): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(187): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\porst m\documents\moly\moly\moly\output.c(191): warning C4047: "!=": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(198): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(198): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(217): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(217): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(230): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(230): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(235): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
+﻿  Spielmechanik.c
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(45): warning C4244: "Funktion": Konvertierung von "time_t" in "unsigned int", möglicher Datenverlust
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(83): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(97): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(122): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(154): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(217): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(219): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(227): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
   moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.exe
   moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.pdb (Full PDB)
