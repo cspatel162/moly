@@ -13,8 +13,6 @@ struct actioncard *actioncards;
 int number_actioncards;
 
 
-
-
 int fetch_actioncards(void)
 {
 	//Ermitteln der Zeilenanzahl
@@ -83,4 +81,35 @@ int fetch_actioncards(void)
 	number_actioncards = zeilenanzahl;
 	fclose(file);
 	return 0;
+}
+
+
+int actioncards_play(int person)
+{
+	if (person == 1)
+	{ 
+		//zufällige aktionsarte ziehen
+		int id = random(0; number_actioncards);
+		
+		money_player = money_player + actioncards[id].player_plus - actioncards[id].player_minus;
+		money_ki = money_ki + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
+		return 0;
+	}
+
+
+	//wenn KI/Gegner Karte bekommt
+
+	if (person == 2)
+	{
+		//zufällige Aktionskarten ziehen
+		int id = random(0; number_actioncards);
+
+		money_ki = money_player + actioncards[id].player_plus - actioncards[id].player_minus;
+		money_player = money_ki + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
+		return 0;
+	}
+
+	//falls eine falsche person übergeben wurde
+
+	return 1;
 }
