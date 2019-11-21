@@ -79,7 +79,7 @@ int fetch_actioncards(void)
 		zaehler++;
 	}
 	number_actioncards = zeilenanzahl;
-	fclose(file);
+	//fclose(file);
 	return 0;
 }
 
@@ -89,11 +89,11 @@ int actioncards_play(int person)
 
 	if (person == 1)
 	{ 
-		//zufällige aktionsarte ziehen
+		//zufï¿½llige aktionsarte ziehen
 		int id = wuerfel(0, number_actioncards);  //es wird mit der Random/Wuerfel funktion aus dem Modul Spielmechanik gearbeitet
 		
-		money_player = money_player + actioncards[id].player_plus - actioncards[id].player_minus;
-		money_ki = money_ki + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
+		money_player[1] = money_player[1] + actioncards[id].player_plus - actioncards[id].player_minus;
+		money_player[2] = money_player[2] + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
 		return 0;
 	}
 
@@ -102,16 +102,16 @@ int actioncards_play(int person)
 
 	if (person == 2)
 	{
-		//zufällige Aktionskarten ziehen
+		//zufï¿½llige Aktionskarten ziehen
 		
 		int id = wuerfel(0,number_actioncards);  //es wird mit der Random/Wuerfel funktion aus dem Modul Spielmechanik gearbeitet
 
-		money_ki = money_player + actioncards[id].player_plus - actioncards[id].player_minus;
-		money_player = money_ki + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
+		money_player[2] = money_player[2] + actioncards[id].player_plus - actioncards[id].player_minus;
+		money_player[1] = money_player[1] + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
 		return 0;
 	}
 
-	//falls eine falsche person übergeben wurde
+	//falls eine falsche person ï¿½bergeben wurde
 
 	return 1;
 }

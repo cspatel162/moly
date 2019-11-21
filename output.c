@@ -84,9 +84,9 @@ void matchfield_update(int field_id, int action_id)
 			default: printf("   FAIL"); break;
 		} printf("||");
 
-		if (position_ki == i) 
+		if (position_player[2] == i) 
 		{	
-			if (position_player == i)
+			if (position_player[1] == i)
 			{
 				colourize(colour_player); printf(" X "); colourize('x');
 				colourize(colour_ki); printf(" O "); colourize('x');
@@ -96,7 +96,7 @@ void matchfield_update(int field_id, int action_id)
 		}
 		else
 		{
-			if (position_player == i)
+			if (position_player[1] == i)
 			{ colourize(colour_player); printf("    X "); colourize('x'); }
 			else
 			{printf("      ");}
@@ -167,7 +167,8 @@ void card_whrite(int field_id, int zeile, int action_id)
 
 		case 14: printf("Dein Nickname  : %-10s", name_player); break;
 		case 15: printf("Deine Farbe    : "); colourize(colour_player); printf(" X "); colourize("x"); printf(" %c", colour_player); break;
-		case 16: printf("Ihr Kontostand :  %8i", money_player); break;
+		case 16: printf("Ihr Kontostand :  %8i", money_player[1]); break;
+		case 17: printf("KI  Kontostand :  %8i", money_player[2]); break;
 		default: break;
 		}
 
@@ -182,7 +183,7 @@ void card_whrite(int field_id, int zeile, int action_id)
 		{
 		case 14: printf("Dein Nickname  : %-10s", name_player); break;
 		case 15: printf("Deine Farbe    : "); colourize(colour_player); printf(" X "); colourize("x"); printf(" %c", colour_player); break;
-		case 16: printf("Ihr Kontostand :  %8i", money_player); break;
+		case 16: printf("Ihr Kontostand :  %8i", money_player[1]); break;
 		default: break;
 		}
 		return 0;
@@ -216,7 +217,8 @@ void card_whrite(int field_id, int zeile, int action_id)
 		case 18: print_char(27, "-"); break;
 		case 21: printf("Dein Nickname  : %-10s", name_player); break;
 		case 22: printf("Deine Farbe    : "); colourize(colour_player); printf(" X "); colourize("x"); printf(" %c", colour_player); break;
-		case 23: printf("Ihr Kontostand :  %8i", money_player); break;
+		case 23: printf("Ihr Kontostand :  %8i", money_player[1]); break;
+		case 24: printf("KI  Kontostand :  %8i", money_player[2]); break;
 		default: break;
 		}
 	}
@@ -229,7 +231,8 @@ void card_whrite(int field_id, int zeile, int action_id)
 		{
 		case 14: printf("Dein Nickname  : %-10s", name_player); break;
 		case 15: printf("Deine Farbe    : "); colourize(colour_player); printf(" X "); colourize("x"); printf(" %c", colour_player); break;
-		case 16: printf("Ihr Kontostand :  %8i", money_player); break;
+		case 16: printf("Ihr Kontostand :  %8i", money_player[1]); break;
+		case 17: printf("KI  Kontostand :  %8i", money_player[2]); break;
 		default: break;
 		}
 	}

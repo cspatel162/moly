@@ -13,10 +13,12 @@ char *gets(char *buffer);
 int fetch_data(void);
 int fetch_actioncards(void);
 void end(void);
+void free(void);
 void welcome(void);
 int new_game(void);
 int load_game(void);
 int save_game(void);
+
 
 struct field *matchfield;
 struct actioncard *actioncards;
@@ -25,23 +27,36 @@ int number_actioncards;
 char *name_player;
 char colour_player;
 char colour_ki;
-int position_player;
-int position_ki;
-int money_player;
-int money_ki;
+int *position_player;
+int *money_player;
 
 int turn;
 
 
 int main()
 {
-	//spielzug();
+	position_player = calloc(3, sizeof(int));
+	money_player = calloc(3, sizeof(int));
+
 	new_game();
+	matchfield_update( NULL, NULL);
+
+	int user = 1;
+	int ki = 2;
+	int status = 1;
+	turn = 1;
+	while (status != 0)
+	{
+		spielzug(turn);
+		if (money_player[turn] <= 0) { status = 0; }
+		if (turn < 2) { turn++; }
+		else { turn = 1; }
+	}
 	
-	matchfield_update( 5, 0);
-	//printf("%s", actioncards[0].text[0]);
-	//for (int z = 0; z <= 5; z++) {	printf("%s", actioncards[0].text[z]);}
-	scanf(" %s");
+	if (money_player[user] <= 0) { printf("Du hast verloren"); }
+	else { printf("Du hast gewonnen!"); }
+	
+	//scanf(" %s");
 }
 
 void welcome(void)
@@ -258,7 +273,7 @@ int save_game()
 	char time[30]; strcpy(time, ctime(&now));
 	time[24] = ' ';
 	printf("Die Urheit ist %s", time);
-	fprintf(file2, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%s,;\n", name_player, money_player, money_ki, position_player, position_ki, colour_player, colour_ki, turn, time);
+	fprintf(file2, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%s,;\n", name_player, money_player[1], money_player[2], position_player[1], position_player[2], colour_player, colour_ki, turn, time);
 
 	for (int i = 0; i <= number_streets - 1; i++)
 	{
@@ -313,16 +328,16 @@ int fetch_data(char filename[])
 	strcpy(name_player, ptr);
 
 	ptr = strtok(NULL, delimiter);
-	money_player = atoi(ptr);
+	money_player[1] = atoi(ptr);
 
 	ptr = strtok(NULL, delimiter);
-	money_ki = atoi(ptr);
+	money_player[2] = atoi(ptr);
 
 	ptr = strtok(NULL, delimiter);
-	position_player = atoi(ptr);
+	position_player[1] = atoi(ptr);
 
 	ptr = strtok(NULL, delimiter);
-	position_ki = atoi(ptr);
+	position_player[2] = atoi(ptr);
 
 	ptr = strtok(NULL, delimiter);
 	colour_player = *ptr;
@@ -398,6 +413,44 @@ void end(void)
 {
 	free(matchfield);
 	free(name_player);
+	free(actioncards);
+	free(position_player);
+	free(money_player);
 	printf("Vielen Dank, dass du mit uns gespielt hast.\Bis zum nächsten mal.");
-	scanf(" ");
+	
+}
+
+void free(void)
+{
+	free(matchfield);
+	free(name_player);
+	free(actioncards);
+	free(position_player);
+	free(money_player);
+}
+
+int break_menue(void)
+{
+	printf("Pausenmenue\n\n1: Spielstand speichern\n2: anderen Spielstand laden\n3:weiterspielen\n\n");
+
+	char zeichen;
+	scanf(" %c", &zeichen);
+
+	//Spiel speichern
+	if (zeichen == '1')
+	{
+		save_game(); return 1;
+	}
+
+	//Spiel laden
+	if (zeichen == '2')
+	{
+		free();
+		load_game();
+		return 2;
+	}
+	
+	return 3;
+
+
 }

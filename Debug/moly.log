@@ -1,0 +1,6 @@
+﻿  Spielmechanik.c
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(34): warning C4244: "Funktion": Konvertierung von "time_t" in "unsigned int", möglicher Datenverlust
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(135): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(195): warning C4715: "spielzug": Nicht alle Steuerelementpfade geben einen Wert zurück.
+  moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.exe
+  moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.pdb (Full PDB)

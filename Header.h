@@ -23,10 +23,8 @@ struct actioncard
 
 //Globale Variablen auf die jedes Modul direkten Zugriff hat
 extern char *name_player;
-extern int money_player;
-extern int money_ki;
-extern int position_player;
-extern int position_ki;
+extern int *money_player;
+extern int *position_player;
 extern struct field* matchfield;
 extern struct actioncard* actioncards;
 extern char colour_player;
@@ -37,7 +35,7 @@ extern int number_actioncards;
 //Alle genauen Informationen zu den Prototypen sind im Wiki nachzulesen.
 
 //Prototypen des Main-Moduls
-
+int break_menue(void);
 
 //Prototypen des Output-Moduls
 void matchfield_update(int, char[]);
@@ -46,7 +44,7 @@ void matchfield_update(int, char[]);
 
 //Prototypen des Spielmechanik-Moduls
 
-void spielzug(void);
+int spielzug(int);
 
 //Prototypen Modul Aktionskarten
 int fetch_actioncards(void);
