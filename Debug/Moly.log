@@ -1,6 +1,0 @@
-﻿  Aktionskarten.c
-c:\users\porst m\documents\moly\moly\moly\aktionskarten.c(39): warning C4013: "calloc" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\porst m\documents\moly\moly\moly\aktionskarten.c(39): warning C4047: "=": Anzahl der Dereferenzierungen bei "actioncard *" und "int" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\aktionskarten.c(70): warning C4013: "atoi" undefiniert; Annahme: extern mit Rückgabetyp int
-main.obj : error LNK2005: _fetch_actioncards ist bereits in Aktionskarten.obj definiert.
-C:\Users\Porst M\Documents\moly\moly\Debug\moly.exe : fatal error LNK1169: Mindestens ein mehrfach definiertes Symbol gefunden.
