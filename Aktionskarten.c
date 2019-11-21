@@ -35,9 +35,9 @@ int fetch_actioncards(void)
 	zeilenanzahl = zeilenanzahl - 1;
 	fclose(file);
 
-	//Reservieren des Speicherplatzes für den Heap (für alle Straßendaten)
+	//Reservieren des Speicherplatzes fï¿½r den Heap (fï¿½r alle Straï¿½endaten)
 	actioncards = calloc(zeilenanzahl, sizeof(struct actioncard));
-	if (actioncards == 0) { printf("Nicht genügend Speicherplatz vorhanden!\n"); return 1; }
+	if (actioncards == 0) { printf("Nicht genï¿½gend Speicherplatz vorhanden!\n"); return 1; }
 	//Daten einlesen
 	file = fopen("actioncards.txt", "r");
 	if (file == 0)
