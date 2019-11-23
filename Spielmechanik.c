@@ -19,7 +19,7 @@ char *gets(char *buffer);
 
 int wuerfel(int, int);						// 1. Parameter Kleinste Zahl im Wertebereich ; 2. Parameter Größte Zahl nicht im Wertebereich
 
-int eingabe(int, int);						// 1. Parameter kleinstes Zeichen 2. Parameter größtes Zeichen ------ Beide exklusiv!
+
 
 int posi(int, int	);						// 1. Parameter Wuerfelzahl		2. Person ID 1 steht für Player, 2 für KI
 
@@ -45,17 +45,17 @@ int spielzug(int person_id)
 	//Spielstein bewegen
 	if (person_id != 2)
 	{
-		printf("Sie sind am Zug.\nDruecke beliebige Taste um zu Würfeln...");
+		printf("\tSie sind am Zug.\n\tDruecke beliebige Taste um zu Würfeln...");
 		char zw = ' ';
 		//getc(stdin);
-		scanf(" %c", &zw);
+		eingabe(NULL, NULL);
 	}
 	else
 	{
-		printf("Druecke beliebige Taste um den Computer seinen Zug machen zu lassen...");
+		printf("\tDruecke beliebige Taste um den Computer seinen Zug machen zu lassen...");
 		char zw = ' ';
 		//getc(stdin);
-		scanf(" %c", &zw);
+		eingabe(NULL, NULL);
 	}
 	
 		//printf("Augenzahl eingeben:");
@@ -68,10 +68,12 @@ int spielzug(int person_id)
 		field_id = position_player[person_id];
 
 		matchfield_update(field_id, NULL);														// Öberfläche wird aktualisiert
-		printf("Sie haben %i gewuerfelt und auch nach vorne gerueckt\n", bewegung);					// INFO Ausgabe an Spieler
+		printf("\tSie haben %i gewuerfelt.\n\n", bewegung);					// INFO Ausgabe an Spieler
 	
-																									//Sonderfeld Aktionskarte
-	if (strcmp(matchfield[field_id].name, "Aktionskarte") == 0)		//Überprüfung auf Aktionsfeld
+		
+																									
+	//Sonderfeld Aktionskarte
+	if (strcmp(matchfield[field_id].name, "Aktionskarte") == 0)
 	{
 		actioncards_play(person_id);
 		matchfield_update(field_id, NULL);
@@ -79,12 +81,12 @@ int spielzug(int person_id)
 	}
 
 
-	// Sonderfeld GoToGefängnis: Spieler 
-	 if (strcmp(matchfield[field_id].name, "Ab ins Gefaengniss!") == 0)
+	// Sonderfeld GoToGefängnis
+	 if (strcmp(matchfield[field_id].name, "Ab ins Gefaengnis!") == 0)
 	 {
 		 //Ermitteln der Position des Gefängnis
 		 int jail_id= 0;
-		 for (int i = 0; i <= number_streets - 1; i++) { if (strcmp(matchfield[i].name, "Gefaengnis") == 0) { jail_id = i; } }
+		 for (int i = 0; i <= number_streets - 1; i++) { if (strcmp(matchfield[i].name, "Gefaengnis / Zu Besuch") == 0) { jail_id = i; } }
 
 		 //Spielstein auf Gefaengnis setzen und Strafzahlung
 		 position_player[person_id] = jail_id;				
@@ -92,9 +94,24 @@ int spielzug(int person_id)
 		 
 		 matchfield_update(field_id, NULL);
 		 
-		 ausgabe(person_id, "Sie Sind im Gefaengnis gelandet!!");
+		 ausgabe(person_id, "Sie Sind im Gefaengnis gelandet!!\n\n");
 		 return 1;
 	 }
+
+	 //Sonderfeld LOS
+	 if (strcmp(matchfield[field_id].name, "Los") == 0)
+	 {
+		 matchfield_update(field_id, NULL);
+		 return 1;
+	 }
+
+	 //Sonderfeld Gefängnis
+	 if (strcmp(matchfield[field_id].name, "Gefaengnis / Zu Besuch") == 0)
+	 {
+		 matchfield_update(field_id, NULL);
+		 return 1;
+	 }
+
 
 	 //Straßenbehandlung:
 
@@ -106,7 +123,7 @@ int spielzug(int person_id)
 		 int rent = matchfield[field_id].rent[matchfield[field_id].house];  //Ermittlung Miethöhe
 		 money_player[person_id] = money_player[person_id] - rent;			//Abziehen des Betrags beim Gläubiger
 		 money_player[gegner_id] = money_player[gegner_id] + rent;			//Gutschrift beim Besitzer des Feldes
-		 ausgabe(person_id, "Sie mussten Miete zahlen!");
+		 ausgabe(person_id, "\tSie mussten Miete zahlen!\n");
 		 return 2;
 	 }
 
@@ -114,7 +131,7 @@ int spielzug(int person_id)
 	 if (matchfield[field_id].owner == 0)												// Ueberpruefen ob es keinem gehoert und kein aktionskarte und gefaengnis
 	 {
 		 ausgabe(person_id, "Wollen Sie das Objekt erwerben?\n\t 1 fuer ja, 2 fuer nein");				// Kaufanfrage
-		 if (person_id == 2) { zw_answer = wuerfel(1, 3); printf("Die KI hat %i gewuerfelt", zw_answer); }	//Für KI wird eine automatische Eingabe erzeugt
+		 if (person_id == 2) { zw_answer = wuerfel(1, 3); printf("\tDie KI hat %i gewuerfelt\n", zw_answer); }	//Für KI wird eine automatische Eingabe erzeugt
 		 else { zw_answer = eingabe(0, 3); }
 
 		 //Haus kaufen
@@ -132,7 +149,7 @@ int spielzug(int person_id)
 				 return 3;
 			 }
 			 
-			 else { printf("Nicht genug Geld\n"); puffer; }												// Wenn NEIN --> Nichts 
+			 else { printf("\tNicht genug Geld\n\n"); puffer; }												// Wenn NEIN --> Nichts 
 
 		 }
 
@@ -200,7 +217,7 @@ int spielzug(int person_id)
 int wuerfel(int min, int max)				// 1. Parameter Kleinste Zahl ; 2. Parameter Größte Zahl
 {
 	int i = rand() % (max - min) + min;		// Erzeugen Zufallszahl zwischen min - max
-	printf("\tSie haben die Zahl %i gewuerfelt \n", i);						// Ausgabe der Zufallszahl
+	printf("\tSie haben die Zahl %i gewuerfelt \n\n", i);						// Ausgabe der Zufallszahl
 
 	return i;
 }
@@ -212,15 +229,20 @@ int eingabe (int min, int max)			// 1. Parameter kleinstes Zeichen 2. Parameter 
 	char zeichen;
 	scanf(" %c", &zeichen);
 	
+	if (min == NULL && max == NULL && zeichen != 'b')
+	{
+		return 0;
+	}
+	
 	switch (zeichen)
 	{
-	case 48: zahl = 1; break;
-	case 49: zahl = 2; break;
-	case 50: zahl = 3; break;
-	case 51: zahl = 4; break;
-	case 52: zahl = 5; break;
-		//case 'b': break_menue(); return eingabe(min, max);
-		default: printf("Es wurde %c eingegeben", zeichen); return eingabe(min, max);
+	case 48: zahl = 0; break;
+	case 49: zahl = 1; break;
+	case 50: zahl = 2; break;
+	case 51: zahl = 3; break;
+	case 52: zahl = 4; break;
+	case 'b': break_menue(); return NULL;
+	default: printf("\nUngültige Eingabe %c\n", zeichen); return eingabe(min, max);
 	}
 	if (zahl < min || zahl > max)
 	{
@@ -264,7 +286,7 @@ int ausgabe(int person_id, char text[])
 {
 	if (person_id != 2)
 	{
-		printf("%s\n", text);
+		printf("\t%s\n", text);
 
 	}
 	return 0;

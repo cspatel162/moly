@@ -45,6 +45,7 @@ void matchfield_update(int, char[]);
 //Prototypen des Spielmechanik-Moduls
 
 int spielzug(int);
+int eingabe(int, int);						// 1. Parameter kleinstes Zeichen 2. Parameter größtes Zeichen ------ Beide exklusiv!
 
 //Prototypen Modul Aktionskarten
 int fetch_actioncards(void);

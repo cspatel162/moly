@@ -13,7 +13,7 @@ char *gets(char *buffer);
 int fetch_data(void);
 int fetch_actioncards(void);
 void end(void);
-void free(void);
+void free_heap(void);
 void welcome(void);
 int new_game(void);
 int load_game(void);
@@ -30,21 +30,26 @@ char colour_ki;
 int *position_player;
 int *money_player;
 
+//Hilfsvariablen zur steuerung der Main-Methode
 int turn;
-
+int user;
+int ki;
+int status;
 
 int main()
 {
 	position_player = calloc(3, sizeof(int));
 	money_player = calloc(3, sizeof(int));
 
-	new_game();
+	user = 1;
+	ki = 2;
+	status = 1;
+	turn = 1;
+	welcome();
+	//new_game();
 	matchfield_update( NULL, NULL);
 
-	int user = 1;
-	int ki = 2;
-	int status = 1;
-	turn = 1;
+	
 	while (status != 0)
 	{
 		spielzug(turn);
@@ -55,6 +60,7 @@ int main()
 	
 	if (money_player[user] <= 0) { printf("Du hast verloren"); }
 	else { printf("Du hast gewonnen!"); }
+	free_heap();
 	
 	//scanf(" %s");
 }
@@ -65,11 +71,11 @@ void welcome(void)
 	printf("Herzlich willkommen bei MOLY, der digitalen Form von Monopoly.\n");
 	printf("Bitte Maximiere das Fenster um den besten Ueberblick zu haben!\n\n");
 	
-	int action = 0;
-	while (action != 1 && action != 2 && action != 3) {
-		printf("Wollen Sie ein neus Spiel starten oder einen bestehenden Spielstand laden?\n 1: Neues Spiel beginnen\n 2: Bestehenden Spielstand laden\n 3: Spielregeln nachschlagen\n\n Nummer: ");
-		scanf(" %i", &action);
-	}
+	ausgabe(0, "Wollen Sie ein neus Spiel starten oder einen bestehenden Spielstand laden?\n");
+	ausgabe(0, "1: Neues Spiel beginnen\n");
+	ausgabe(0, "2: Bestehenden Spielstand laden\n");
+	ausgabe(0, "3: Spielregeln nachschlagen\n");
+	int action = eingabe(0,4);
 
 	switch (action)
 	{
@@ -95,6 +101,13 @@ int new_game()
 
 int load_game()
 {
+	free_heap();
+	position_player = calloc(3, sizeof(int));
+	money_player = calloc(3, sizeof(int));
+
+	if (position_player == 0 && money_player == 0) 
+	{ position_player = calloc(3, sizeof(int));	money_player = calloc(3, sizeof(int)); }
+
 	FILE *file1;
 	int savegame[8];
 	char path[25] = "savegame/savegame0.txt";
@@ -160,8 +173,10 @@ int load_game()
 				scanf(" %i", &selection);
 				switch (selection)
 				{
-				case 1: fetch_data(path); fetch_actioncards(); return 0; break;
-				case 2: remove(path); printf("Datei wird gelöshct!"); return 2; break;
+				case 1: fetch_data(path); 
+					fetch_actioncards();
+					return 0; break;
+				case 2: remove(path); return load_game(); break;
 				}
 				return 3;
 			}
@@ -411,16 +426,11 @@ int schreibe_data(void)
 
 void end(void)
 {
-	free(matchfield);
-	free(name_player);
-	free(actioncards);
-	free(position_player);
-	free(money_player);
 	printf("Vielen Dank, dass du mit uns gespielt hast.\Bis zum nächsten mal.");
 	
 }
 
-void free(void)
+void free_heap(void)
 {
 	free(matchfield);
 	free(name_player);
@@ -431,6 +441,7 @@ void free(void)
 
 int break_menue(void)
 {
+	system("cls");
 	printf("Pausenmenue\n\n1: Spielstand speichern\n2: anderen Spielstand laden\n3:weiterspielen\n\n");
 
 	char zeichen;
@@ -439,13 +450,12 @@ int break_menue(void)
 	//Spiel speichern
 	if (zeichen == '1')
 	{
-		save_game(); return 1;
+		save_game(); return break_menue();
 	}
 
 	//Spiel laden
 	if (zeichen == '2')
 	{
-		free();
 		load_game();
 		return 2;
 	}

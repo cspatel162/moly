@@ -60,7 +60,7 @@ void matchfield_update(int field_id, int action_id)
 	//show_file("logo.txt");
 	//Header der Tabelle erstellen
 	print_char(78, "="); card_whrite(field_id, zeile, action_id); zeile++;  absatz();
-	printf("||%45s  || %-8s||%-7s||%-7s||", "Straße", "Preis", "Haeuser", " "); card_whrite(field_id, zeile, action_id); zeile++; absatz();
+	printf("||%45s  || %-8s||%-7s||%-6s||", "Straße", "Preis", "Haeuser", " "); card_whrite(field_id, zeile, action_id); zeile++; absatz();
 	print_char(78, "="); card_whrite(field_id, zeile, action_id); zeile++; absatz();
 	print_char(78, "="); card_whrite(field_id, zeile, action_id); zeile++; absatz();
 	
