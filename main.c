@@ -104,9 +104,8 @@ int load_game()
 	free_heap();
 	position_player = calloc(3, sizeof(int));
 	money_player = calloc(3, sizeof(int));
+	if (position_player == 0 || money_player == 0) { printf("ERROR bei Speicherbelegung"); return 0; }
 
-	if (position_player == 0 && money_player == 0) 
-	{ position_player = calloc(3, sizeof(int));	money_player = calloc(3, sizeof(int)); }
 
 	FILE *file1;
 	int savegame[8];
@@ -288,11 +287,13 @@ int save_game()
 	char time[30]; strcpy(time, ctime(&now));
 	time[24] = ' ';
 	printf("Die Urheit ist %s", time);
+	//Abspeichern der Rahmendaten
 	fprintf(file2, "%s,;%i,;%i,;%i,;%i,;%c,;%c,;%i,;%s,;\n", name_player, money_player[1], money_player[2], position_player[1], position_player[2], colour_player, colour_ki, turn, time);
 
+	//Abspeichern der einzelnen Straßen
 	for (int i = 0; i <= number_streets - 1; i++)
 	{
-		fprintf(file2, "%i,;%s,;%c,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;", matchfield[i].owner, matchfield[i].name, matchfield[i].colour, matchfield[i].price, matchfield[i].rent[0], matchfield[i].rent[1], matchfield[i].rent[2], matchfield[i].rent[3], matchfield[i].rent[4], matchfield[i].rent[5], matchfield[i].rent[6], matchfield[i].house);
+		fprintf(file2, "%i,;%s,;%c,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;%i,;", matchfield[i].owner, matchfield[i].name, matchfield[i].colour, matchfield[i].price, matchfield[i].rent[0], matchfield[i].rent[1], matchfield[i].rent[2], matchfield[i].rent[3], matchfield[i].rent[4], matchfield[i].rent[5], matchfield[i].rent[6], matchfield[i].house, matchfield[i].price_house[0], matchfield[i].price_house[1], matchfield[i].price_house[2], matchfield[i].price_house[3]);
 		if (i <= (number_streets - 2)) { fprintf(file2, "\n"); }
 	}
 	fclose(file2);
@@ -444,17 +445,16 @@ int break_menue(void)
 	system("cls");
 	printf("Pausenmenue\n\n1: Spielstand speichern\n2: anderen Spielstand laden\n3:weiterspielen\n\n");
 
-	char zeichen;
-	scanf(" %c", &zeichen);
+	int zeichen = eingabe(0, 3);
 
 	//Spiel speichern
-	if (zeichen == '1')
+	if (zeichen == 1)
 	{
 		save_game(); return break_menue();
 	}
 
 	//Spiel laden
-	if (zeichen == '2')
+	if (zeichen == 2)
 	{
 		load_game();
 		return 2;

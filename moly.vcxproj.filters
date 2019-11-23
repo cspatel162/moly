@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Aktionskarten.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -22,9 +25,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Spielmechanik.c">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Aktionskarten.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

@@ -31,6 +31,7 @@ int ausgabe(int , char[]);
 
 int spielzug(int person_id)
 {
+	matchfield_update(position_player[person_id], NULL);
 	srand(time(NULL));		//Zufallszahlen Reset
 
 
@@ -158,7 +159,7 @@ int spielzug(int person_id)
 	 }
 
 	 // Wenn Feld in Besitz Return 5
-	 if (matchfield[position_player[field_id]].owner == 1)
+	 if (matchfield[field_id].owner == person_id)
 	 {
 		 //Kaufanfrage
 		 ausgabe(person_id, "Wollen Sie ein Haus bauen?\n 1 fuer Ja, 2 fuer Nein");

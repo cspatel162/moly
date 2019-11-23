@@ -9,6 +9,10 @@ char *gets(char *buffer);
 #include "Header.h"
 #include <stdio.h>
 #include<Windows.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
 
 //Lokale Prototypen
 //Funktionen die nur in diesem Modul aufgerufen werden können und müssen.
@@ -47,6 +51,7 @@ int show_file(char filename[15])
 
 void matchfield_update(int field_id, int action_id)
 {
+	system("cls");
 	int zeile = 0;
 
 	//Anweisungen
@@ -56,8 +61,6 @@ void matchfield_update(int field_id, int action_id)
 	wOldColAttr = Screen.wAttributes;
 	
 	//Löschen der Ausgabe
-	system("cls");
-	//show_file("logo.txt");
 	//Header der Tabelle erstellen
 	print_char(78, "="); card_whrite(field_id, zeile, action_id); zeile++;  absatz();
 	printf("||%45s  || %-8s||%-7s||%-6s||", "Straße", "Preis", "Haeuser", " "); card_whrite(field_id, zeile, action_id); zeile++; absatz();
@@ -236,5 +239,6 @@ void card_whrite(int field_id, int zeile, int action_id)
 		default: break;
 		}
 	}
+	//printf(" ");
 	return 0;
 }
