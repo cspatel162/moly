@@ -8,6 +8,10 @@ char *gets(char *buffer);
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include<Windows.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 //Prototypen die nur in diesem Modul zur Verfügung stehen
 int fetch_data(void);
@@ -442,7 +446,7 @@ void free_heap(void)
 
 int break_menue(void)
 {
-	system("cls");
+	clear_output();
 	printf("Pausenmenue\n\n1: Spielstand speichern\n2: anderen Spielstand laden\n3:weiterspielen\n\n");
 
 	int zeichen = eingabe(0, 3);
@@ -463,4 +467,10 @@ int break_menue(void)
 	return 3;
 
 
+}
+
+int clear_output(void)
+{
+	//system("cls");
+	return 0;
 }

@@ -51,7 +51,7 @@ int show_file(char filename[15])
 
 void matchfield_update(int field_id, int action_id)
 {
-	system("cls");
+	clear_output();
 	int zeile = 0;
 
 	//Anweisungen

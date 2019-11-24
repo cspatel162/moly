@@ -36,6 +36,7 @@ extern int number_actioncards;
 
 //Prototypen des Main-Moduls
 int break_menue(void);
+int clear_output(void);
 
 //Prototypen des Output-Moduls
 void matchfield_update(int, char[]);
