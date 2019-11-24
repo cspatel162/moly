@@ -92,7 +92,7 @@ void welcome(void)
 
 int new_game()
 {
-	system("cls");
+	clear_output();
 	show_file("logo.txt");
 	printf("\nNeues Spiel wird erstellt.\n\n");
 	
@@ -471,6 +471,6 @@ int break_menue(void)
 
 int clear_output(void)
 {
-	//system("cls");
+	system("cls");
 	return 0;
 }

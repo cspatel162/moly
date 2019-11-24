@@ -19,8 +19,6 @@ char *gets(char *buffer);
 
 int wuerfel(int, int);						// 1. Parameter Kleinste Zahl im Wertebereich ; 2. Parameter Größte Zahl nicht im Wertebereich
 
-
-
 int posi(int, int	);						// 1. Parameter Wuerfelzahl		2. Person ID 1 steht für Player, 2 für KI
 
 void puffer(void);							// Puffer -- Programmstop bis '1' eingegeben wird
@@ -78,7 +76,7 @@ int spielzug(int person_id)
 	{
 		actioncards_play(person_id);
 		matchfield_update(field_id, NULL);
-		return 1;
+		return 0;
 	}
 
 
@@ -103,20 +101,20 @@ int spielzug(int person_id)
 	 if (strcmp(matchfield[field_id].name, "Los") == 0)
 	 {
 		 matchfield_update(field_id, NULL);
-		 return 1;
+		 return 2;
 	 }
 
 	 //Sonderfeld Gefängnis
 	 if (strcmp(matchfield[field_id].name, "Gefaengnis / Zu Besuch") == 0)
 	 {
 		 matchfield_update(field_id, NULL);
-		 return 1;
+		 return 4;
 	 }
 
 
 	 //Straßenbehandlung:
 
-	 // Wenn Feld der anderen Person gehört und Miete mus gezahlt werden RETURN 2
+	 // Wenn Feld der anderen Person gehört und Miete mus gezahlt werden RETURN 4
 	 if (matchfield[field_id].owner != person_id && matchfield[field_id].owner != 0)
 	 {
 		 int gegner_id = matchfield[field_id].owner; //Ermitteln des Besitzers
@@ -125,10 +123,10 @@ int spielzug(int person_id)
 		 money_player[person_id] = money_player[person_id] - rent;			//Abziehen des Betrags beim Gläubiger
 		 money_player[gegner_id] = money_player[gegner_id] + rent;			//Gutschrift beim Besitzer des Feldes
 		 ausgabe(person_id, "\tSie mussten Miete zahlen!\n");
-		 return 2;
+		 return 4;
 	 }
 
-	 // Wenn Feld noch niemanden gehört  RETURN 3 Feld gekauft RETURN 4 Feld nicht gekauft
+	 // Wenn Feld noch niemanden gehört  RETURN 5 Feld gekauft RETURN 6 Feld nicht gekauft
 	 if (matchfield[field_id].owner == 0)												// Ueberpruefen ob es keinem gehoert und kein aktionskarte und gefaengnis
 	 {
 		 ausgabe(person_id, "Wollen Sie das Objekt erwerben?\n\t 1 fuer ja, 2 fuer nein");				// Kaufanfrage
@@ -147,7 +145,7 @@ int spielzug(int person_id)
 
 				 matchfield_update(field_id, NULL);
 				 ausgabe(person_id, "Objekt erworben");
-				 return 3;
+				 return 5;
 			 }
 			 
 			 else { printf("\tNicht genug Geld\n\n"); puffer; }												// Wenn NEIN --> Nichts 
@@ -155,10 +153,10 @@ int spielzug(int person_id)
 		 }
 
 		 //Haus nicht kaufen
-		 return 4;
+		 return 6;
 	 }
 
-	 // Wenn Feld in Besitz Return 5
+	 // Wenn Feld in Besitz Return 7
 	 if (matchfield[field_id].owner == person_id)
 	 {
 		 //Kaufanfrage
@@ -207,21 +205,11 @@ int spielzug(int person_id)
 			 }
 			 else { ausgabe(person_id, "Nicht genuegend Geld"); zw_answer = 0;}
 		 }
-	 return 5;
+	 return 7;
 	 }
 	 
 }
 
-
-// Wuerfelfunktion
-
-int wuerfel(int min, int max)				// 1. Parameter Kleinste Zahl ; 2. Parameter Größte Zahl
-{
-	int i = rand() % (max - min) + min;		// Erzeugen Zufallszahl zwischen min - max
-	printf("\tSie haben die Zahl %i gewuerfelt \n\n", i);						// Ausgabe der Zufallszahl
-
-	return i;
-}
 
 // Eingabefunktion mit Kontrolle des Wertebereichs
 int eingabe (int min, int max)			// 1. Parameter kleinstes Zeichen 2. Parameter größtes Zeichen ------ Beide exklusiv!
@@ -254,6 +242,18 @@ int eingabe (int min, int max)			// 1. Parameter kleinstes Zeichen 2. Parameter 
 		return zahl;
 	}
 }
+// Wuerfelfunktion
+
+int wuerfel(int min, int max)				// 1. Parameter Kleinste Zahl ; 2. Parameter Größte Zahl
+{
+	int i = rand() % (max - min) + min;		// Erzeugen Zufallszahl zwischen min - max
+	printf("\tSie haben die Zahl %i gewuerfelt \n\n", i);						// Ausgabe der Zufallszahl
+
+	return i;
+}
+
+
+
 
 // Funktion um Spielerposition zu Aktualisieren
 int posi(int beweg, int person_id)

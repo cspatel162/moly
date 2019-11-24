@@ -1,38 +1,4 @@
-﻿  Spielmechanik.c
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(35): warning C4244: "Funktion": Konvertierung von "time_t" in "unsigned int", möglicher Datenverlust
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(52): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(52): warning C4024: "eingabe": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(52): warning C4024: "eingabe": unterschiedliche Typen für formalen und übergebenen Parameter 2
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(59): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(59): warning C4024: "eingabe": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(59): warning C4024: "eingabe": unterschiedliche Typen für formalen und übergebenen Parameter 2
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(153): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(233): warning C4047: "==": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(245): warning C4047: "return": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-  output.c
-c:\users\martin\documents\moly\moly\moly\output.c(53): warning C4028: Formaler Parameter "2" unterscheidet sich von der Deklaration
-c:\users\martin\documents\moly\moly\moly\output.c(65): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\martin\documents\moly\moly\moly\output.c(66): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\martin\documents\moly\moly\moly\output.c(67): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\martin\documents\moly\moly\moly\output.c(68): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\martin\documents\moly\moly\moly\output.c(107): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\martin\documents\moly\moly\moly\output.c(108): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\martin\documents\moly\moly\moly\output.c(147): warning C4029: Deklarierte Liste formaler Parameter weicht von der Definition ab
-c:\users\martin\documents\moly\moly\moly\output.c(172): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\output.c(172): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\martin\documents\moly\moly\moly\output.c(178): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\martin\documents\moly\moly\moly\output.c(188): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\output.c(188): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\martin\documents\moly\moly\moly\output.c(192): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\martin\documents\moly\moly\moly\output.c(196): warning C4047: "!=": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\output.c(203): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\output.c(203): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\martin\documents\moly\moly\moly\output.c(222): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\output.c(222): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\martin\documents\moly\moly\moly\output.c(236): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\output.c(236): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\martin\documents\moly\moly\moly\output.c(243): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-  main.c
+﻿  main.c
 c:\users\martin\documents\moly\moly\moly\main.c(54): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
 c:\users\martin\documents\moly\moly\moly\main.c(54): warning C4024: "matchfield_update": unterschiedliche Typen für formalen und übergebenen Parameter 1
 c:\users\martin\documents\moly\moly\moly\main.c(74): warning C4013: "show_file" undefiniert; Annahme: extern mit Rückgabetyp int
@@ -45,16 +11,9 @@ c:\users\martin\documents\moly\moly\moly\main.c(158): warning C4473: "scanf": ni
 c:\users\martin\documents\moly\moly\moly\main.c(307): warning C4027: Funktion ohne Liste formaler Parameter deklariert
 c:\users\martin\documents\moly\moly\moly\main.c(375): warning C4101: "zw": Unreferenzierte lokale Variable
 c:\users\martin\documents\moly\moly\moly\main.c(434): warning C4129: "B": nicht erkannte Folge von Escapesequenz
-  Aktionskarten.c
-c:\users\martin\documents\moly\moly\moly\aktionskarten.c(37): warning C4013: "calloc" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\martin\documents\moly\moly\moly\aktionskarten.c(37): warning C4047: "=": Anzahl der Dereferenzierungen bei "actioncard *" und "int" unterschiedlich
-c:\users\martin\documents\moly\moly\moly\aktionskarten.c(68): warning C4013: "atoi" undefiniert; Annahme: extern mit Rückgabetyp int
-c:\users\martin\documents\moly\moly\moly\aktionskarten.c(93): warning C4013: "wuerfel" undefiniert; Annahme: extern mit Rückgabetyp int
-  Code wird generiert...
 c:\users\martin\documents\moly\moly\moly\main.c(104): warning C4716: "new_game": Muss einen Wert zurückgeben
-c:\users\martin\documents\moly\moly\moly\main.c(430): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
 c:\users\martin\documents\moly\moly\moly\main.c(192): warning C4715: "load_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
+c:\users\martin\documents\moly\moly\moly\main.c(430): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
 c:\users\martin\documents\moly\moly\moly\main.c(304): warning C4715: "save_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
-c:\users\martin\documents\moly\moly\moly\spielmechanik.c(213): warning C4715: "spielzug": Nicht alle Steuerelementpfade geben einen Wert zurück.
   moly.vcxproj -> C:\Users\Martin\Documents\moly\moly\Debug\moly.exe
   moly.vcxproj -> C:\Users\Martin\Documents\moly\moly\Debug\moly.pdb (Partial PDB)
