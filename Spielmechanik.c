@@ -29,7 +29,7 @@ int ausgabe(int , char[]);
 
 int spielzug(int person_id)
 {
-	matchfield_update(position_player[person_id], NULL);
+	matchfield_update(position_player[person_id], person_id,  NULL);
 	srand(time(NULL));		//Zufallszahlen Reset
 
 
@@ -66,7 +66,7 @@ int spielzug(int person_id)
 		//position der Person herausfinden
 		field_id = position_player[person_id];
 
-		matchfield_update(field_id, NULL);														// Öberfläche wird aktualisiert
+		matchfield_update(field_id, person_id, NULL);														// Öberfläche wird aktualisiert
 		printf("\tSie haben %i gewuerfelt.\n\n", bewegung);					// INFO Ausgabe an Spieler
 	
 		
@@ -75,7 +75,7 @@ int spielzug(int person_id)
 	if (strcmp(matchfield[field_id].name, "Aktionskarte") == 0)
 	{
 		actioncards_play(person_id);
-		matchfield_update(field_id, NULL);
+		matchfield_update(field_id, person_id,  NULL);
 		return 0;
 	}
 
@@ -91,7 +91,7 @@ int spielzug(int person_id)
 		 position_player[person_id] = jail_id;				
 		 money_player[person_id] = money_player[person_id] - 1000;															
 		 
-		 matchfield_update(field_id, NULL);
+		 matchfield_update(field_id, person_id, NULL);
 		 
 		 ausgabe(person_id, "Sie Sind im Gefaengnis gelandet!!\n\n");
 		 return 1;
@@ -100,14 +100,14 @@ int spielzug(int person_id)
 	 //Sonderfeld LOS
 	 if (strcmp(matchfield[field_id].name, "Los") == 0)
 	 {
-		 matchfield_update(field_id, NULL);
+		 matchfield_update(field_id, person_id, NULL);
 		 return 2;
 	 }
 
 	 //Sonderfeld Gefängnis
 	 if (strcmp(matchfield[field_id].name, "Gefaengnis / Zu Besuch") == 0)
 	 {
-		 matchfield_update(field_id, NULL);
+		 matchfield_update(field_id, person_id, NULL);
 		 return 4;
 	 }
 
@@ -143,7 +143,7 @@ int spielzug(int person_id)
 				 money_player[person_id] = money_player[person_id] - matchfield[field_id].price;				// Kaufpreis
 				 matchfield[field_id].owner = person_id;
 
-				 matchfield_update(field_id, NULL);
+				 matchfield_update(field_id, person_id, NULL);
 				 ausgabe(person_id, "Objekt erworben");
 				 return 5;
 			 }
@@ -194,7 +194,7 @@ int spielzug(int person_id)
 					//Haus bezahlen und Haus eintragen
 					 money_player[person_id] = money_player[person_id] - price_newhouse;
 					 matchfield[field_id].house++;
-					 matchfield_update(field_id, NULL);																		// Spielfeld aktualisieren
+					 matchfield_update(field_id, person_id, NULL);																		// Spielfeld aktualisieren
 					 ausgabe(person_id, "Haus wurde gebaut!");
 				 }
 				 else { ausgabe(person_id, "Haus konnt nicht gebaut werden. (Farb-Besitz-Problem)"); }

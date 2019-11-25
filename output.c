@@ -49,8 +49,10 @@ int show_file(char filename[15])
 	return 0;
 }
 
-void matchfield_update(int field_id, int action_id)
+int matchfield_update(int field_id, int person_id, int action_id)
 {
+	//BEI KI KEINE AUSGABE
+	if (person_id == 2) { return 1; }
 	clear_output();
 	int zeile = 0;
 
@@ -108,11 +110,13 @@ void matchfield_update(int field_id, int action_id)
 		print_char(78, "-"); card_whrite(field_id, zeile, action_id); zeile++; absatz();
 	}
 	printf("\n\n");
+	return 1;
 }
+
+
 
 //lokale Funktionen um die hauptfunktionen übersichtlicher zu gestalten
 
-//Vorgefertige Ausgabe Funktionen
 void print_char(int anzahl, char inhalt[])
 {
 	for (int i = 0; i <= anzahl; i++)

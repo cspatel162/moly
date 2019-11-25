@@ -39,14 +39,14 @@ int break_menue(void);
 int clear_output(void);
 
 //Prototypen des Output-Moduls
-void matchfield_update(int, char[]);
+int matchfield_update(int,int, int);
 
 
 
 //Prototypen des Spielmechanik-Moduls
 
 int spielzug(int);
-int eingabe(int, int);						// 1. Parameter kleinstes Zeichen 2. Parameter größtes Zeichen ------ Beide exklusiv!
+int eingabe(int, int);						// 1. Parameter kleinstes Zeichen 2. Parameter grï¿½ï¿½tes Zeichen ------ Beide exklusiv!
 
 //Prototypen Modul Aktionskarten
 int fetch_actioncards(void);

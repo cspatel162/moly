@@ -15,7 +15,6 @@ char *gets(char *buffer);
 
 //Prototypen die nur in diesem Modul zur Verfügung stehen
 int fetch_data(void);
-int fetch_actioncards(void);
 void end(void);
 void free_heap(void);
 void welcome(void);
@@ -23,7 +22,7 @@ int new_game(void);
 int load_game(void);
 int save_game(void);
 
-
+//Globale Variablen, die auch in der Header.h Datei aufgeführt sind.
 struct field *matchfield;
 struct actioncard *actioncards;
 int number_streets;
@@ -44,14 +43,14 @@ int main()
 {
 	position_player = calloc(3, sizeof(int));
 	money_player = calloc(3, sizeof(int));
-
+	
 	user = 1;
 	ki = 2;
 	status = 1;
 	turn = 1;
 	welcome();
 	//new_game();
-	matchfield_update( NULL, NULL);
+	matchfield_update( NULL, NULL, NULL);
 
 	
 	while (status != 0)
@@ -62,9 +61,10 @@ int main()
 		else { turn = 1; }
 	}
 	
-	if (money_player[user] <= 0) { printf("Du hast verloren"); }
-	else { printf("Du hast gewonnen!"); }
+	if (money_player[user] < 0) { printf("Du hast verloren\n"); }
+	if (money_player[ki] < 0) { printf("Du hast gewonnen!\n"); }
 	free_heap();
+	end();
 	
 	//scanf(" %s");
 }
@@ -99,7 +99,8 @@ int new_game()
 	fetch_data("data.txt");
 	fetch_actioncards();
 
-	printf("Geben Sie ihen Nicknamen ein :");
+	printf("Adresse des Namens ist: %i", name_player);
+	printf("Geben Sie ihen Nicknamen ein :\n");
 	scanf(" %s", name_player);
 }
 
@@ -439,7 +440,7 @@ void free_heap(void)
 {
 	free(matchfield);
 	free(name_player);
-	free(actioncards);
+	//free(actioncards);
 	free(position_player);
 	free(money_player);
 }
@@ -447,9 +448,9 @@ void free_heap(void)
 int break_menue(void)
 {
 	clear_output();
-	printf("Pausenmenue\n\n1: Spielstand speichern\n2: anderen Spielstand laden\n3:weiterspielen\n\n");
+	printf("Pausenmenue\n\n1: Spielstand speichern\n2: anderen Spielstand laden\n3:weiterspielen\n4: Spiel nach diesem Spielzug beenden.\n\n");
 
-	int zeichen = eingabe(0, 3);
+	int zeichen = eingabe(0, 4);
 
 	//Spiel speichern
 	if (zeichen == 1)
@@ -463,6 +464,13 @@ int break_menue(void)
 		load_game();
 		return 2;
 	}
+
+	//Spiel beenden
+	if (zeichen == 4)
+	{
+		status = 0;
+		return 4;
+	}
 	
 	return 3;
 
@@ -472,5 +480,6 @@ int break_menue(void)
 int clear_output(void)
 {
 	system("cls");
+	printf("\n");
 	return 0;
 }
