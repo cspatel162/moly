@@ -102,8 +102,11 @@ int new_game()
 	printf("Geben Sie ihen Nicknamen ein :\n");
 
 	char flash;
+
+	gets(name_player);
+	//fgets(name_player, 10, stdin);
 	//scanf("%c%s", &flash, name_player);
-	//scanf(" %s",  name_player);
+	//scanf(" %s",  &name_player[1]);
 	//printf(" ");	
 }
 

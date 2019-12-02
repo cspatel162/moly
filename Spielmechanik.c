@@ -44,14 +44,14 @@ int spielzug(int person_id)
 	//Spielstein bewegen
 	if (person_id != 2)
 	{
-		printf("\tSie sind am Zug.\n\tDruecke beliebige Taste um zu Würfeln...\nOder drücken Sie 'b' um ins Pausenmenü zu kommen....\n");
+		printf("\tSie sind am Zug.\n\tDruecke beliebige Taste um zu Würfeln oder drücken Sie 'b' um ins Pausenmenü zu kommen....\n");
 		char zw = ' ';
 		//getc(stdin);
 		eingabe(NULL, NULL);
 	}
 	else
 	{
-		printf("\tDruecke beliebige Taste um den Computer seinen Zug machen zu lassen...Oder drücken Sie 'b' um ins Pausenmenü zu kommen....\n");
+		printf("\tDruecke beliebige Taste um den Computer seinen Zug machen zu lassen oder drücken Sie 'b' um ins Pausenmenü zu kommen....\n");
 		char zw = ' ';
 		//getc(stdin);
 		eingabe(NULL, NULL);
