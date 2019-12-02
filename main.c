@@ -99,9 +99,12 @@ int new_game()
 	fetch_data("data.txt");
 	fetch_actioncards();
 
-	printf("Adresse des Namens ist: %i", name_player);
 	printf("Geben Sie ihen Nicknamen ein :\n");
-	scanf(" %s", name_player);
+
+	char flash;
+	//scanf("%c%s", &flash, name_player);
+	//scanf(" %s",  name_player);
+	//printf(" ");	
 }
 
 int load_game()
@@ -345,7 +348,7 @@ int fetch_data(char filename[])
 	//Einlesen aller allgemeinen Spieldaten
 	fgets(datensatz, 400, file);
 	ptr = strtok(datensatz, delimiter);
-	name_player = calloc(10, sizeof(char));
+	name_player = calloc(50, sizeof(char));
 	strcpy(name_player, ptr);
 
 	ptr = strtok(NULL, delimiter);
@@ -479,6 +482,8 @@ int break_menue(void)
 
 int clear_output(void)
 {
+	char flash;
+	scanf("%c", &flash);
 	system("cls");
 	printf("\n");
 	return 0;
