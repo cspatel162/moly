@@ -81,11 +81,11 @@ int spielzug(int person_id)
 
 
 	// Sonderfeld GoToGefängnis
-	 if (strcmp(matchfield[field_id].name, "Ab ins Gefaengnis!") == 0)
+	 if (strcmp(matchfield[field_id].name, "GO TO ASKABAN") == 0)
 	 {
 		 //Ermitteln der Position des Gefängnis
 		 int jail_id= 0;
-		 for (int i = 0; i <= number_streets - 1; i++) { if (strcmp(matchfield[i].name, "Gefaengnis / Zu Besuch") == 0) { jail_id = i; } }
+		 for (int i = 0; i <= number_streets - 1; i++) { if (strcmp(matchfield[i].name, "ASKABAN") == 0) { jail_id = i; } }
 
 		 //Spielstein auf Gefaengnis setzen und Strafzahlung
 		 position_player[person_id] = jail_id;				
@@ -105,7 +105,7 @@ int spielzug(int person_id)
 	 }
 
 	 //Sonderfeld Gefängnis
-	 if (strcmp(matchfield[field_id].name, "Gefaengnis / Zu Besuch") == 0)
+	 if (strcmp(matchfield[field_id].name, "ASKABAN") == 0)
 	 {
 		 matchfield_update(field_id, person_id, NULL);
 		 return 4;
