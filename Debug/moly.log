@@ -15,8 +15,8 @@ c:\users\porst m\documents\moly\moly\moly\main.c(314): warning C4027: Funktion o
 c:\users\porst m\documents\moly\moly\moly\main.c(382): warning C4101: "zw": Unreferenzierte lokale Variable
 c:\users\porst m\documents\moly\moly\moly\main.c(441): warning C4129: "B": nicht erkannte Folge von Escapesequenz
 c:\users\porst m\documents\moly\moly\moly\main.c(111): warning C4716: "new_game": Muss einen Wert zurückgeben
-c:\users\porst m\documents\moly\moly\moly\main.c(199): warning C4715: "load_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
 c:\users\porst m\documents\moly\moly\moly\main.c(311): warning C4715: "save_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
+c:\users\porst m\documents\moly\moly\moly\main.c(199): warning C4715: "load_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
 c:\users\porst m\documents\moly\moly\moly\main.c(437): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
   moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.exe
   moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.pdb (Partial PDB)
