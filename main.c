@@ -389,7 +389,7 @@ int fetch_data(char filename[])
 		//Einlesen des Namen
 		ptr = strtok(NULL, delimiter);
 		strcpy(matchfield[zaehler].name, ptr);
-		//printf("Name     : %s\n", (matchfield+zaehler)->name);
+		printf("Name     : %s\n", (matchfield+zaehler)->name);
 		//Einlesen Farbe
 		ptr = strtok(NULL, delimiter);
 		matchfield[zaehler].colour = *ptr;
