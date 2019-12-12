@@ -10,7 +10,6 @@ char *gets(char *buffer);
 #include <time.h>
 
 struct actioncard *actioncards;
-int number_actioncards;
 
 
 int fetch_actioncards(void)
@@ -58,23 +57,28 @@ int fetch_actioncards(void)
 		//Einlesen Titel
 		ptr = strtok(datensatz, delimiter);
 		strcpy(actioncards[zaehler].title, ptr);
-		//printf("Titel: %s", ptr);
+		printf("Titel: %s", ptr);
 		//Einlesen des Textes
 		for (int i = 0; i <= 199; i++) { actioncards[zaehler].text[i] = ' '; }
 		ptr = strtok(NULL, delimiter);
 		strcpy(actioncards[zaehler].text, ptr);
+		printf(" --- Text: %s", ptr);
 		//Einlesen Wert gegner_minus
 		ptr = strtok(NULL, delimiter);
 		actioncards[zaehler].gegner_minus = atoi(ptr);
+		printf(" --- GegnerMinus: %s", ptr);
 		//Einlesen Wert gegner_plus
 		ptr = strtok(NULL, delimiter);
 		actioncards[zaehler].gegner_plus = atoi(ptr);
+		printf(" --- GegnerPlus: %s", ptr);
 		//Einlesen Wert player_minus
 		ptr = strtok(NULL, delimiter);
 		actioncards[zaehler].player_minus = atoi(ptr);
+		printf(" --- PlayerMinus: %s", ptr);
 		//Einlesen Wert player_plus
 		ptr = strtok(NULL, delimiter);
 		actioncards[zaehler].player_plus = atoi(ptr);
+		printf(" --- PlayerPlus: %s\n", ptr);
 		//printf("Daten eingelesen: %c", actioncards[zaehler].text[0]);
 		zaehler++;
 	}
@@ -84,16 +88,17 @@ int fetch_actioncards(void)
 }
 
 
-int actioncards_play(int person)
+int actioncards_play(int person, int field_id)
 {	
 
 	if (person == 1)
 	{ 
 		//zuf�llige aktionsarte ziehen
-		int id = wuerfel(0, number_actioncards);  //es wird mit der Random/Wuerfel funktion aus dem Modul Spielmechanik gearbeitet
-		
-		money_player[1] = money_player[1] + actioncards[id].player_plus - actioncards[id].player_minus;
-		money_player[2] = money_player[2] + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
+		int zufall = wuerfel(0, number_actioncards);//es wird mit der Random/Wuerfel funktion aus dem Modul Spielmechanik gearbeitet
+
+		money_player[1] = money_player[1] + actioncards[zufall].player_plus - actioncards[zufall].player_minus;
+		money_player[2] = money_player[2] + actioncards[zufall].gegner_plus - actioncards[zufall].gegner_minus;
+		matchfield_update(field_id, person, zufall);
 		return 0;
 	}
 
@@ -103,11 +108,12 @@ int actioncards_play(int person)
 	if (person == 2)
 	{
 		//zuf�llige Aktionskarten ziehen
-		
-		int id = wuerfel(0,number_actioncards);  //es wird mit der Random/Wuerfel funktion aus dem Modul Spielmechanik gearbeitet
 
-		money_player[2] = money_player[2] + actioncards[id].player_plus - actioncards[id].player_minus;
-		money_player[1] = money_player[1] + actioncards[id].gegner_plus - actioncards[id].gegner_minus;
+		int zufall = wuerfel(0, number_actioncards);  //es wird mit der Rand1om/Wuerfel funktion aus dem Modul Spielmechanik gearbeitet
+
+		money_player[2] = money_player[2] + actioncards[zufall].player_plus - actioncards[zufall].player_minus;
+		money_player[1] = money_player[1] + actioncards[zufall].gegner_plus - actioncards[zufall].gegner_minus;
+		matchfield_update(field_id, person, zufall);
 		return 0;
 	}
 

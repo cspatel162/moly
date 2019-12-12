@@ -22,6 +22,9 @@ void colourize(char);
 void card_whrite(int, int);
 void print_char(int anzahl, char inhalt[]);
 
+void strassenwrite(void);
+void actioncardwrite(void);
+
 CONSOLE_SCREEN_BUFFER_INFO Screen;
 WORD wOldColAttr;
 HANDLE hStdOut;
@@ -51,9 +54,13 @@ int show_file(char filename[15])
 
 int matchfield_update(int field_id, int person_id, int action_id)
 {
+	
 	//BEI KI KEINE AUSGABE
 	if (person_id == 2) { return 1; }
 	clear_output();
+	//printf("actionid = %i", action_id);
+	//strassenwrite();
+	//actioncardwrite();
 	int zeile = 0;
 
 	//Anweisungen
@@ -113,6 +120,21 @@ int matchfield_update(int field_id, int person_id, int action_id)
 	return 1;
 }
 
+void strassenwrite()
+{
+	for (int i = 0; i <= number_streets; i++)
+	{
+		printf("Straße %s wurde eingelesen!\n", matchfield[i].name);
+	}
+}
+
+void actioncardwrite()
+{
+	for (int i = 0; i <= number_actioncards; i++)
+	{
+		printf("Aktionskarte %s wurde eingelesen!\n", actioncards[i].title);
+	}
+}
 
 
 //lokale Funktionen um die hauptfunktionen übersichtlicher zu gestalten
@@ -147,7 +169,7 @@ void colourize(char colour)
 	}
 }
 
-void card_whrite(int field_id, int zeile, int action_id)
+void card_whrite(int field_id, int zeile, int a_id)
 {
 	//Anweisungen
 	hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -167,9 +189,9 @@ void card_whrite(int field_id, int zeile, int action_id)
 		case 0: print_char(45, "="); break;
 		case 1: printf("||   "); printf("%-35s", "Aktionskarte");  printf("   ||"); break;
 		case 2: print_char(45, "="); break;
-		case 3: printf("||"); for (z = 0; z <= 41; z++) {  printf("%1c", actioncards[action_id].text[z]); } printf("||"); break;
-		case 4: printf("||"); for (z = 42; z <= 83; z++) { printf("%1c", actioncards[action_id].text[z]); } printf("||"); break;
-		case 5: printf("||"); for (z = 84; z <= 126; z++) { printf("%1c", actioncards[action_id].text[z]); } printf("||"); break; 
+		case 3: printf("||"); for (z = 0; z <= 41; z++) {  printf("%1c", actioncards[a_id].text[z]); } printf("||"); break;
+		case 4: printf("||"); for (z = 42; z <= 83; z++) { printf("%1c", actioncards[a_id].text[z]); } printf("||"); break;
+		case 5: printf("||"); for (z = 84; z <= 126; z++) { printf("%1c", actioncards[a_id].text[z]); } printf("||"); break; 
 		case 6: print_char(45, "="); break;
 
 		case 14: printf("Dein Nickname  : %-10s", name_player); break;
@@ -183,7 +205,7 @@ void card_whrite(int field_id, int zeile, int action_id)
 	}
 
 	//Sollte das Startfeld ausgegeben werden wird dieser Abschnitt ausgeführt und beendet die Funktion
-	if (strcmp(matchfield[field_id].name, "Los") == 0)
+	if (strcmp(matchfield[field_id].name, "Los" ) == 0)
 	{
 		print_char(ABSTAND, " ");
 		switch (zeile)
@@ -196,6 +218,31 @@ void card_whrite(int field_id, int zeile, int action_id)
 		return 0;
 	}
 	
+	//Wenn Askaban ausgegeb werden soll
+	if (strcmp(matchfield[field_id].name, "ASKABAN") == 0)
+	{
+		print_char(ABSTAND, " ");
+		switch (zeile)
+		{
+		case  1: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+		case  2: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+		case  3: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+		case  4: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+		case  5: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+		case  6: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+		case  7: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+		case  8: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+		case  9: printf("##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##"); break;
+
+		case 14: printf("Dein Nickname  : %-10s", name_player); break;
+		case 15: printf("Deine Farbe    : "); colourize(colour_player); printf(" X "); colourize("x"); printf(" %c", colour_player); break;
+		case 16: printf("Ihr Kontostand :  %8i", money_player[1]); break;
+		default: break;
+		}
+		return 0;
+	}
+
+
 	//Sollte eine Straße ausgegeben werden wird dieser Abschnitt ausgeführt und beendet die Funktion
 	if (field_id != NULL)
 	{

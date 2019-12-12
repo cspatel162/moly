@@ -1,5 +1,4 @@
 ﻿Gewinn!,;Du hast beim Mittwochslotto gewonnen! Du erhältst 5.000,;0,;0,;0,;5000,;
-Strafe!,;Du bist betrunken in der Vorlesung erschienen! Du zahlst 5.000,;0,;0,;5000,;0,;
 Gewinn!,;Dein neu entwickeltes Moly Spiel startet voll durch! Du erhältst 2.500,;0,;0,;0,;2500,;
 Strafe!,;Du zahlst Einkommenssteuer! Du zahlst 2.500,;0,;0,;2500,;0,;
 Strafe!,;Als nette Geste schenkst du deinem Gegner Geld! Du zahlst 2.500,;0,;2500,;2500,;0,;

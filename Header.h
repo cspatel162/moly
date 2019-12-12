@@ -36,17 +36,17 @@ extern int number_actioncards;
 
 //Prototypen des Main-Moduls
 int break_menue(void);
-int clear_output(void);
+void clear_output(void);
 
 //Prototypen des Output-Moduls
 int matchfield_update(int,int, int);
-
 
 
 //Prototypen des Spielmechanik-Moduls
 
 int spielzug(int);
 int eingabe(int, int);						// 1. Parameter kleinstes Zeichen 2. Parameter gr��tes Zeichen ------ Beide exklusiv!
+void puffer(void);
 
 //Prototypen Modul Aktionskarten
 int fetch_actioncards(void);

@@ -50,23 +50,25 @@ int main()
 	turn = 1;
 	welcome();
 	//new_game();
+	//printf("main - nach new game()");
 	matchfield_update( NULL, NULL, NULL);
-
+	//printf("main - nach update()");
 	
 	while (status != 0)
 	{
 		spielzug(turn);
+		if (turn == 2) { matchfield_update(NULL, NULL, NULL); }
 		if (money_player[turn] <= 0) { status = 0; }
 		if (turn < 2) { turn++; }
 		else { turn = 1; }
+		//puffer();
 	}
 	
 	if (money_player[user] < 0) { printf("Du hast verloren\n"); }
 	if (money_player[ki] < 0) { printf("Du hast gewonnen!\n"); }
 	free_heap();
 	end();
-	
-	//scanf(" %s");
+	return 0;
 }
 
 void welcome(void)
@@ -78,7 +80,7 @@ void welcome(void)
 	ausgabe(0, "Wollen Sie ein neus Spiel starten oder einen bestehenden Spielstand laden?\n");
 	ausgabe(0, "1: Neues Spiel beginnen\n");
 	ausgabe(0, "2: Bestehenden Spielstand laden\n");
-	ausgabe(0, "3: Spielregeln nachschlagen\n");
+	//ausgabe(0, "3: Spielregeln nachschlagen\n");
 	int action = eingabe(0,4);
 
 	switch (action)
@@ -98,21 +100,29 @@ int new_game()
 	
 	fetch_data("data.txt");
 	fetch_actioncards();
+	printf("\nSpieldaten wurden geladen!!\n\n\n");
+
 
 	printf("Geben Sie ihen Nicknamen ein :\n");
 
-	char flash;
-
-	gets(name_player);
-	//fgets(name_player, 10, stdin);
+	//gets(name_player);
+	//char flash;
+	//while (getchar() != '\n');
+	fgets(name_player, 10, stdin);
+	//while (getchar() != '\n');
 	//scanf("%c%s", &flash, name_player);
-	//scanf(" %s",  &name_player[1]);
+	//scanf("%s",  name_player);
 	//printf(" ");	
+
+	for (int i = 0; i <= 50; i++)
+	{
+		if (name_player[i] == '\n') name_player[i] = ' ';
+	}
+
 }
 
 int load_game()
 {
-	free_heap();
 	position_player = calloc(3, sizeof(int));
 	money_player = calloc(3, sizeof(int));
 	if (position_player == 0 || money_player == 0) { printf("ERROR bei Speicherbelegung"); return 0; }
@@ -186,7 +196,7 @@ int load_game()
 				case 1: fetch_data(path); 
 					fetch_actioncards();
 					return 0; break;
-				case 2: remove(path); return load_game(); break;
+				case 2: remove(path); free_heap(); return load_game(); break;
 				}
 				return 3;
 			}
@@ -312,7 +322,7 @@ int save_game()
 
 int fetch_data(char filename[])
 {
-	//printf("DAteinname: %s", filename);
+	printf("DAteinname: %s", filename);
 	//Ermitteln der Zeilenanzahl
 	int zeilenanzahl = 0;
 	FILE *file;
@@ -382,40 +392,40 @@ int fetch_data(char filename[])
 		struct field zw = *(matchfield + zaehler);
 		//Zeile einlesen
 		fgets(datensatz, 400, file);
-		//printf("Zeile ist: %s\n", datensatz);
+		printf("Zeile ist: %s\n", datensatz);
 		
 		ptr = strtok(datensatz, delimiter);
 		matchfield[zaehler].owner = atoi(ptr);
 		//Einlesen des Namen
 		ptr = strtok(NULL, delimiter);
 		strcpy(matchfield[zaehler].name, ptr);
-		//printf("Name     : %s\n", (matchfield+zaehler)->name);
+		printf("Name     : %s\n", (matchfield+zaehler)->name);
 		//Einlesen Farbe
 		ptr = strtok(NULL, delimiter);
 		matchfield[zaehler].colour = *ptr;
-		//printf("Farbe     : %c\n", (matchfield + zaehler)->colour);
+		printf("Farbe     : %c\n", (matchfield + zaehler)->colour);
 		//Einlesen Preis
 		ptr = strtok(NULL, delimiter);
 		matchfield[zaehler].price = atoi(ptr);
-	    //printf("Preis     : %i\n", (matchfield + zaehler)->price);
+	    printf("Preis     : %i\n", (matchfield + zaehler)->price);
 		//Einlesen Mieten
 		for (int i = 0; i <= 6; i++)
 		{
 			ptr = strtok(NULL, delimiter);
 			matchfield[zaehler].rent[i] = atoi(ptr);
-			//printf("Miete mit %i Haeusern: %i\n",i , (matchfield + zaehler)->rent[i]);
+			printf("Miete mit %i Haeusern: %i\n",i , (matchfield + zaehler)->rent[i]);
 		}
 		//Einlesen Häuser
 		ptr = strtok(NULL, delimiter);
 		matchfield[zaehler].house = atoi(ptr);
-		//printf("Haeuser     : %i\n", (matchfield + zaehler)->house);
+		printf("Haeuser     : %i\n", (matchfield + zaehler)->house);
 		
 		//Einlesen Häuserpreise
 		for (int i = 0; i <= 3; i++)
 		{
 			ptr = strtok(NULL, delimiter);
 			matchfield[zaehler].price_house[i] = atoi(ptr);
-			//printf("Miete mit %i Haeusern: %i\n",i , (matchfield + zaehler)->rent[i]);
+			printf("Miete mit %i Haeusern: %i\n",i , (matchfield + zaehler)->rent[i]);
 		}
 		
 		zaehler++;
@@ -439,24 +449,23 @@ int schreibe_data(void)
 void end(void)
 {
 	printf("Vielen Dank, dass du mit uns gespielt hast.\Bis zum nächsten mal.");
-	
 }
 
 void free_heap(void)
 {
-	free(matchfield);
-	free(name_player);
-	//free(actioncards);
-	free(position_player);
-	free(money_player);
+	if (matchfield == 0)	free(matchfield);
+	if (name_player == 0)	free(name_player);
+	if (actioncards == 0)	free(actioncards);
+	if (position_player == 0)free(position_player);
+	if (money_player == 0)	free(money_player);
 }
 
 int break_menue(void)
 {
 	clear_output();
-	printf("Pausenmenue\n\n1: Spielstand speichern\n2: anderen Spielstand laden\n3:weiterspielen\n4: Spiel nach diesem Spielzug beenden.\n\n");
+	printf("Pausenmenue\n\n1: Spielstand speichern\n2: anderen Spielstand laden\n3:weiterspielen\n4: Spiel nach diesem Spielzug beenden.\n5: Spielregeln nachschlagen\n\n");
 
-	int zeichen = eingabe(0, 4);
+	int zeichen = eingabe(0, 5);
 
 	//Spiel speichern
 	if (zeichen == 1)
@@ -478,16 +487,24 @@ int break_menue(void)
 		return 4;
 	}
 	
+	//Spielregeln nachschlagen.
+	if (zeichen == 5)
+	{
+		clear_output();
+		show_file("rules.txt");
+		puffer();
+		matchfield_update(NULL, NULL, NULL);
+		return 3;
+	}
 	return 3;
 
 
 }
 
-int clear_output(void)
+void clear_output(void)
 {
 	char flash;
-	scanf("%c", &flash);
+	//scanf("%c", &flash);
 	system("cls");
 	printf("\n");
-	return 0;
 }

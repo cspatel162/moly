@@ -1,8 +1,11 @@
-Jeder Spieler erhält zu Spielbeginn eine Figur(x -> grün oder o -> rot) und 30.000 Startkapital.
+﻿Jeder Spieler erhält zu Spielbeginn eine Figur(x -> grün oder o -> rot) und 30.000 Startkapital.
 Alle Mitspieler starten in der ersten oberen Zeile des Tabellenförmigen Moly Spielfeldes.
 
 Es wird mit einem Würfel gewürfelt. Der Spieler, der an der Reihe ist zieht soviel Zeilen weiter, wie die gewürfelte Augenzahl.
-Landet ein Spieler mit einem Zug auf einem Straßennamen und die Straße gehört noch keinem anderen Mitspieler, kann er die Straße kaufen und erhält die Besitzrecht-Karte. Landen danach andere Spieler auf der Straße, müssen sie dem Besitzer Miete zahlen. Die Höhe der Miete ist auf der Besitzrecht-Karte festgelegt.
-Besitzt ein Spieler alle Straßen einer Farbe, kann er darauf Häuser bauen - jedes mal, wenn er auf das Feld kommt, aber jedes mal nur ein Haus. Der Preis für einen Hausbau ist ebenfalls auf der Besitzrecht-Karte festgelegt. Hat der Besitzer auf einer Straße vier Häuser gebaut, kann er ein Hotel errichten. Mit jedem Haus oder Hotel erhöht sich die Miete, die ein anderer Spieler zahlen muss.
+Landet ein Spieler mit einem Zug auf einem Straßennamen und die Straße gehört noch keinem anderen Mitspieler, kann er die Straße kaufen und erhält die Besitzrecht-Karte. 
+Landen danach andere Spieler auf der Straße, müssen sie dem Besitzer Miete zahlen. Die Höhe der Miete ist auf der Besitzrecht-Karte festgelegt.
+Besitzt ein Spieler alle Straßen einer Farbe, kann er darauf Häuser bauen - jedes mal, wenn er auf das Feld kommt, aber jedes mal nur ein Haus. Der Preis für einen Hausbau
+ist ebenfalls auf der Besitzrecht-Karte festgelegt. Hat der Besitzer auf einer Straße vier Häuser gebaut, kann er ein Hotel errichten. Mit jedem Haus oder Hotel erhöht sich
+die Miete, die ein anderer Spieler zahlen muss.
 Landet ein Spieler auf einem Aktionsfeld wird ihm per Zufall eine Aktion zugewiesen und diese Wirkt sich auf sein Kontostand aus.
 Ein Spieler scheidet aus dem Spiel aus, sobald er bankrott geht. Das ist der Fall, wenn er nicht mehr genug Geld hat, um beispielsweise Miete zahlen zu können.

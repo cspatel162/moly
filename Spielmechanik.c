@@ -21,7 +21,7 @@ int wuerfel(int, int);						// 1. Parameter Kleinste Zahl im Wertebereich ; 2. P
 
 int posi(int, int	);						// 1. Parameter Wuerfelzahl		2. Person ID 1 steht für Player, 2 für KI
 
-void puffer(void);							// Puffer -- Programmstop bis '1' eingegeben wird
+//void puffer(void);							// Puffer -- Programmstop bis '1' eingegeben wird
 
 int ausgabe(int , char[]);
 
@@ -29,7 +29,6 @@ int ausgabe(int , char[]);
 
 int spielzug(int person_id)
 {
-	matchfield_update(position_player[person_id], person_id,  NULL);
 	srand(time(NULL));		//Zufallszahlen Reset
 
 
@@ -44,18 +43,20 @@ int spielzug(int person_id)
 	//Spielstein bewegen
 	if (person_id != 2)
 	{
-		printf("\tSie sind am Zug.\n\tDruecke beliebige Taste um zu Würfeln oder drücken Sie 'b' um ins Pausenmenü zu kommen....\n");
+		printf("\tSie sind am Zug.\n\tDruecke beliebige Taste um zu Wuerfeln oder druecken Sie 'b' um ins Pausenmenue zu kommen....\n");
 		char zw = ' ';
 		//getc(stdin);
 		eingabe(NULL, NULL);
 	}
 	else
 	{
-		printf("\tDruecke beliebige Taste um den Computer seinen Zug machen zu lassen oder drücken Sie 'b' um ins Pausenmenü zu kommen....\n");
+		printf("\tDruecke beliebige Taste um den Computer seinen Zug machen zu lassen oder druecken Sie 'b' um ins Pausenmenue zu kommen....\n");
 		char zw = ' ';
 		//getc(stdin);
 		eingabe(NULL, NULL);
 	}
+
+	matchfield_update(position_player[person_id], person_id, NULL);
 	
 		//printf("Augenzahl eingeben:");
 		//bewegung = 1;
@@ -74,8 +75,8 @@ int spielzug(int person_id)
 	//Sonderfeld Aktionskarte
 	if (strcmp(matchfield[field_id].name, "Aktionskarte") == 0)
 	{
-		actioncards_play(person_id);
-		matchfield_update(field_id, person_id,  NULL);
+		actioncards_play(person_id, field_id);
+		printf("Du bist auf Aktionskarte gelandet!!\n");
 		return 0;
 	}
 
@@ -98,16 +99,14 @@ int spielzug(int person_id)
 	 }
 
 	 //Sonderfeld LOS
-	 if (strcmp(matchfield[field_id].name, "Los") == 0)
+	 if (strcmp(matchfield[field_id].name, "LOS") == 0)
 	 {
-		 matchfield_update(field_id, person_id, NULL);
 		 return 2;
 	 }
 
 	 //Sonderfeld Gefängnis
 	 if (strcmp(matchfield[field_id].name, "ASKABAN") == 0)
 	 {
-		 matchfield_update(field_id, person_id, NULL);
 		 return 4;
 	 }
 
@@ -197,7 +196,7 @@ int spielzug(int person_id)
 					 matchfield_update(field_id, person_id, NULL);																		// Spielfeld aktualisieren
 					 ausgabe(person_id, "Haus wurde gebaut!");
 				 }
-				 else { ausgabe(person_id, "Haus konnt nicht gebaut werden. (Farb-Besitz-Problem)"); }
+				else { ausgabe(person_id, "Haus konnt nicht gebaut werden. (Farb-Besitz-Problem)"); return 7; }
 				 
 				printf("Wollen Sie ein weiteres Haus bauen?\n 1 fuer Ja, 2 fuer Nein");
 				if (person_id == 2) { zw_answer = wuerfel(1, 3); }	//Für KI wird eine automatische Eingabe erzeugt
@@ -216,10 +215,12 @@ int eingabe (int min, int max)			// 1. Parameter kleinstes Zeichen 2. Parameter 
 {
 	int zahl;
 	char zeichen;
-	scanf(" %c", &zeichen);
-	
+	//scanf(" %c", &zeichen);
+	zeichen = getc(stdin);
+
 	if (min == NULL && max == NULL && zeichen != 'b')
 	{
+		while (getchar() != '\n');
 		return 0;
 	}
 	
@@ -230,15 +231,22 @@ int eingabe (int min, int max)			// 1. Parameter kleinstes Zeichen 2. Parameter 
 	case 50: zahl = 2; break;
 	case 51: zahl = 3; break;
 	case 52: zahl = 4; break;
+	case 53: zahl = 5; break;
+	case 54: zahl = 6; break;
+	case 55: zahl = 7; break;
+	case 56: zahl = 8; break;
+	case 57: zahl = 9; break;
 	case 'b': break_menue(); return NULL;
-	default: printf("\nUngültige Eingabe %c\n", zeichen); return eingabe(min, max);
+	default: printf("\nUngueltige Eingabe %c\n", zeichen); return eingabe(min, max);
 	}
 	if (zahl < min || zahl > max)
 	{
+		while (getchar() != '\n');
 		return eingabe(min, max);
 	}
 	else
 	{
+		while (getchar() != '\n');
 		return zahl;
 	}
 }
@@ -247,11 +255,11 @@ int eingabe (int min, int max)			// 1. Parameter kleinstes Zeichen 2. Parameter 
 int wuerfel(int min, int max)				// 1. Parameter Kleinste Zahl ; 2. Parameter Größte Zahl
 {
 	int i = rand() % (max - min) + min;		// Erzeugen Zufallszahl zwischen min - max
-	printf("\tSie haben die Zahl %i gewuerfelt \n\n", i);						// Ausgabe der Zufallszahl
-
+	//printf("\tSie haben die Zahl %i gewuerfelt \n\n", i);						// Ausgabe der Zufallszahl
+	//printf("Simulierter Würfel:");
+	//i = eingabe(0, 12);
 	return i;
 }
-
 
 
 
