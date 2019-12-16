@@ -159,6 +159,7 @@ int spielzug(int person_id)
 	 if (matchfield[field_id].owner == person_id)
 	 {
 		 //Kaufanfrage
+		 if (matchfield[field_id].house >= 4) { return 7; }
 		 ausgabe(person_id, "Wollen Sie ein Haus bauen?\n 1 fuer Ja, 2 fuer Nein");
 		 if (person_id == 2) { zw_answer = wuerfel(1, 3); }	//Für KI wird eine automatische Eingabe erzeugt
 		 else { zw_answer = eingabe(0, 3); }
@@ -198,6 +199,7 @@ int spielzug(int person_id)
 				 }
 				else { ausgabe(person_id, "Haus konnt nicht gebaut werden. (Farb-Besitz-Problem)"); return 7; }
 				 
+				if (matchfield[field_id].house >= 4) { return 7; }
 				printf("Wollen Sie ein weiteres Haus bauen?\n 1 fuer Ja, 2 fuer Nein");
 				if (person_id == 2) { zw_answer = wuerfel(1, 3); }	//Für KI wird eine automatische Eingabe erzeugt
 				else { zw_answer = eingabe(0, 3); }

@@ -16,10 +16,10 @@ c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(95): warning C4024: "m
 c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(145): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
 c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(145): warning C4024: "matchfield_update": unterschiedliche Typen für formalen und übergebenen Parameter 3
 c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(150): warning C4550: Ausdruck wird als Funktion ausgewertet, der eine Argumentliste fehlt
-c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(196): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(196): warning C4024: "matchfield_update": unterschiedliche Typen für formalen und übergebenen Parameter 3
-c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(221): warning C4047: "==": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(239): warning C4047: "return": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(197): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(197): warning C4024: "matchfield_update": unterschiedliche Typen für formalen und übergebenen Parameter 3
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(223): warning C4047: "==": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(241): warning C4047: "return": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
   output.c
 c:\users\porst m\documents\moly\moly\moly\output.c(74): warning C4020: "card_whrite": zu viele übergebene Parameter
 c:\users\porst m\documents\moly\moly\moly\output.c(75): warning C4020: "card_whrite": zu viele übergebene Parameter
@@ -27,24 +27,24 @@ c:\users\porst m\documents\moly\moly\moly\output.c(76): warning C4020: "card_whr
 c:\users\porst m\documents\moly\moly\moly\output.c(77): warning C4020: "card_whrite": zu viele übergebene Parameter
 c:\users\porst m\documents\moly\moly\moly\output.c(116): warning C4020: "card_whrite": zu viele übergebene Parameter
 c:\users\porst m\documents\moly\moly\moly\output.c(117): warning C4020: "card_whrite": zu viele übergebene Parameter
-c:\users\porst m\documents\moly\moly\moly\output.c(173): warning C4029: Deklarierte Liste formaler Parameter weicht von der Definition ab
-c:\users\porst m\documents\moly\moly\moly\output.c(198): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(198): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(204): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\porst m\documents\moly\moly\moly\output.c(214): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(214): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(218): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\porst m\documents\moly\moly\moly\output.c(238): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(238): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(242): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
-c:\users\porst m\documents\moly\moly\moly\output.c(247): warning C4047: "!=": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(254): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(254): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(273): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(273): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(287): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
-c:\users\porst m\documents\moly\moly\moly\output.c(287): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
-c:\users\porst m\documents\moly\moly\moly\output.c(294): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
+c:\users\porst m\documents\moly\moly\moly\output.c(175): warning C4029: Deklarierte Liste formaler Parameter weicht von der Definition ab
+c:\users\porst m\documents\moly\moly\moly\output.c(200): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\output.c(200): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
+c:\users\porst m\documents\moly\moly\moly\output.c(206): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
+c:\users\porst m\documents\moly\moly\moly\output.c(216): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\output.c(216): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
+c:\users\porst m\documents\moly\moly\moly\output.c(220): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
+c:\users\porst m\documents\moly\moly\moly\output.c(240): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\output.c(240): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
+c:\users\porst m\documents\moly\moly\moly\output.c(244): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
+c:\users\porst m\documents\moly\moly\moly\output.c(249): warning C4047: "!=": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\output.c(256): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\output.c(256): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
+c:\users\porst m\documents\moly\moly\moly\output.c(275): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\output.c(275): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
+c:\users\porst m\documents\moly\moly\moly\output.c(289): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "char" und "char [2]" unterschiedlich
+c:\users\porst m\documents\moly\moly\moly\output.c(289): warning C4024: "colourize": unterschiedliche Typen für formalen und übergebenen Parameter 1
+c:\users\porst m\documents\moly\moly\moly\output.c(296): warning C4098: "card_whrite": "void"-Funktion gibt einen Wert zurück
   main.c
 c:\users\porst m\documents\moly\moly\moly\main.c(54): warning C4047: "Funktion": Anzahl der Dereferenzierungen bei "int" und "void *" unterschiedlich
 c:\users\porst m\documents\moly\moly\moly\main.c(54): warning C4024: "matchfield_update": unterschiedliche Typen für formalen und übergebenen Parameter 1
@@ -76,10 +76,10 @@ c:\users\porst m\documents\moly\moly\moly\aktionskarten.c(68): warning C4013: "a
 c:\users\porst m\documents\moly\moly\moly\aktionskarten.c(92): warning C4029: Deklarierte Liste formaler Parameter weicht von der Definition ab
 c:\users\porst m\documents\moly\moly\moly\aktionskarten.c(97): warning C4013: "wuerfel" undefiniert; Annahme: extern mit Rückgabetyp int
   Code wird generiert...
-c:\users\porst m\documents\moly\moly\moly\main.c(122): warning C4716: "new_game": Muss einen Wert zurückgeben
 c:\users\porst m\documents\moly\moly\moly\main.c(209): warning C4715: "load_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
+c:\users\porst m\documents\moly\moly\moly\main.c(122): warning C4716: "new_game": Muss einen Wert zurückgeben
 c:\users\porst m\documents\moly\moly\moly\main.c(321): warning C4715: "save_game": Nicht alle Steuerelementpfade geben einen Wert zurück.
 c:\users\porst m\documents\moly\moly\moly\main.c(447): warning C4716: "schreibe_data": Muss einen Wert zurückgeben
-c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(210): warning C4715: "spielzug": Nicht alle Steuerelementpfade geben einen Wert zurück.
+c:\users\porst m\documents\moly\moly\moly\spielmechanik.c(212): warning C4715: "spielzug": Nicht alle Steuerelementpfade geben einen Wert zurück.
   moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.exe
   moly.vcxproj -> C:\Users\Porst M\Documents\moly\moly\Debug\moly.pdb (Partial PDB)
