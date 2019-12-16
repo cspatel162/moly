@@ -120,6 +120,8 @@ int matchfield_update(int field_id, int person_id, int action_id)
 	return 1;
 }
 
+
+//Hilffunktionen um im Fall der Fehlersuche das richtige Einlesen zu kontrollieren.
 void strassenwrite()
 {
 	for (int i = 0; i <= number_streets; i++)
